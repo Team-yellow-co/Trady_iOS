@@ -17,6 +17,7 @@
 		C9B5E2D525BC750E0024678D /* SpoqaHanSansLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C9B5E2D125BC750C0024678D /* SpoqaHanSansLight.ttf */; };
 		C9B5E2D625BC750E0024678D /* SpoqaHanSansThin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C9B5E2D225BC750D0024678D /* SpoqaHanSansThin.ttf */; };
 		C9B5E2D725BC750E0024678D /* SpoqaHanSansRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C9B5E2D325BC750E0024678D /* SpoqaHanSansRegular.ttf */; };
+		C9B5E2E325BD72450024678D /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B5E2E225BD72450024678D /* MainTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		C9B5E2D125BC750C0024678D /* SpoqaHanSansLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SpoqaHanSansLight.ttf; sourceTree = "<group>"; };
 		C9B5E2D225BC750D0024678D /* SpoqaHanSansThin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SpoqaHanSansThin.ttf; sourceTree = "<group>"; };
 		C9B5E2D325BC750E0024678D /* SpoqaHanSansRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SpoqaHanSansRegular.ttf; sourceTree = "<group>"; };
+		C9B5E2E225BD72450024678D /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,9 +105,8 @@
 		C967AEDD25BC3E6000A7710F /* Trady */ = {
 			isa = PBXGroup;
 			children = (
+				C9B5E2DB25BD717B0024678D /* Screens */,
 				C9B5E2CF25BC74ED0024678D /* SupportingFiles */,
-				C967AEDE25BC3E6000A7710F /* TradyApp.swift */,
-				C967AEE025BC3E6000A7710F /* LoginContentView.swift */,
 				C967AEE225BC3E6200A7710F /* Assets.xcassets */,
 				C967AEE725BC3E6200A7710F /* Info.plist */,
 				C967AEE425BC3E6200A7710F /* Preview Content */,
@@ -142,12 +143,46 @@
 		C9B5E2CF25BC74ED0024678D /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				C967AEDE25BC3E6000A7710F /* TradyApp.swift */,
 				C9B5E2D025BC750C0024678D /* SpoqaHanSansBold.ttf */,
 				C9B5E2D125BC750C0024678D /* SpoqaHanSansLight.ttf */,
 				C9B5E2D325BC750E0024678D /* SpoqaHanSansRegular.ttf */,
 				C9B5E2D225BC750D0024678D /* SpoqaHanSansThin.ttf */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		C9B5E2DB25BD717B0024678D /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				C9B5E2E125BD721F0024678D /* Feed */,
+				C9B5E2DD25BD719D0024678D /* Main */,
+				C9B5E2DC25BD718C0024678D /* Login */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		C9B5E2DC25BD718C0024678D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				C967AEE025BC3E6000A7710F /* LoginContentView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		C9B5E2DD25BD719D0024678D /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C9B5E2E225BD72450024678D /* MainTabView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		C9B5E2E125BD721F0024678D /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Feed;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +320,7 @@
 			files = (
 				C967AEE125BC3E6000A7710F /* LoginContentView.swift in Sources */,
 				C967AEDF25BC3E6000A7710F /* TradyApp.swift in Sources */,
+				C9B5E2E325BD72450024678D /* MainTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
