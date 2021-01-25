@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct LoginContentView: View {
+    
+    let buttonFont: Font = .custom("SpoqaHanSans-Regular", size: 17)
+    
     var body: some View {
         VStack {
             Text("Trady")
@@ -23,8 +26,7 @@ struct LoginContentView: View {
                            alignment: .center)
             
             VStack(alignment: .center, spacing: 10) {
-                
-                let buttonFont: Font = .custom("SpoqaHanSans-Regular", size: 17)
+
                 //Google
                 Button(action: {
                     
