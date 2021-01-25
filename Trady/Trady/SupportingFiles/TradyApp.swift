@@ -11,7 +11,7 @@ import SwiftUI
 struct TradyApp: App {
     var body: some Scene {
         WindowGroup {
-            LoginContentView()
+            MainTabView()
         }
     }
 }

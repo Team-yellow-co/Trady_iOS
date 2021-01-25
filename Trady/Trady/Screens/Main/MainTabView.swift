@@ -5,11 +5,25 @@
 //  Created by bumslap on 2021/01/24.
 //
 
-import SwiftUI
+import SwiftUIs
 
 struct MainTabView: View {
+    init() {
+        UITabBar.appearance().barTintColor = UIColor.white
+    }
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView {
+            FeedView()
+                .tabItem { Image("tab_home") }
+            ChatView()
+                .tabItem { Image("tab_chat") }
+            AlarmView()
+                .tabItem { Image("tab_alarm") }
+            MyView()
+                .tabItem { Image("tab_my") }
+        }
+        .accentColor(.red)
+        
     }
 }
 
@@ -17,4 +31,4 @@ struct MainTabView_Previews: PreviewProvider {
     static var previews: some View {
         MainTabView()
     }
-}ß
+}
