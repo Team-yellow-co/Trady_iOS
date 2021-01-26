@@ -7,11 +7,28 @@
 
 import SwiftUI
 
+class AppSetting: ObservableObject {
+   @Published var isAuthorized: Bool = false
+}
+
 @main
 struct TradyApp: App {
+    
+    @Environment(\.scenePhase) private var scenePhase
+    
+    @StateObject var appSetting = AppSetting()
+    
     var body: some Scene {
         WindowGroup {
-            MainTabView()
+            EnteringView()
+                .environmentObject(appSetting)
+        }
+        .onChange(of: scenePhase) { phase in
+            
+            if phase == .background {
+                
+            }
         }
     }
 }
+

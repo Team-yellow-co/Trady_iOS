@@ -9,15 +9,15 @@ import SwiftUI
 
 struct LoginContentView: View {
     
+    @EnvironmentObject var appSetting: AppSetting
     let buttonFont: Font = .custom("SpoqaHanSans-Regular", size: 17)
     
     var body: some View {
         VStack {
-            Text("Trady")
-                .font(.system(size: 55,
-                              weight: .heavy,
-                              design: .rounded))
+            Text("T")
+                .font(.largeTitle)
                 .fontWeight(.black)
+                .foregroundColor(Color.black)
             
             Spacer().frame(minWidth: UIScreen.main.bounds.width,
                            maxWidth: UIScreen.main.bounds.width,
@@ -29,7 +29,7 @@ struct LoginContentView: View {
 
                 //Google
                 Button(action: {
-                    
+                    appSetting.isAuthorized = true
                 }, label: {
                     HStack {
                         Image("google_logo").resizable()
