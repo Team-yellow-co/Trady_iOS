@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 class AppSetting: ObservableObject {
    @Published var isAuthorized: Bool = false
@@ -13,6 +14,10 @@ class AppSetting: ObservableObject {
 
 @main
 struct TradyApp: App {
+    
+    init() {
+        FirebaseApp.configure()
+    }
     
     @Environment(\.scenePhase) private var scenePhase
     

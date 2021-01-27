@@ -15,7 +15,8 @@ struct EnteringView: View {
         if appSetting.isAuthorized {
             return AnyView(MainTabView())
         } else {
-            return AnyView(LoginContentView())
+            let loginViewModel = LoginViewModel()
+            return AnyView(LoginContentView(viewModel: loginViewModel))
         }
     }
 }

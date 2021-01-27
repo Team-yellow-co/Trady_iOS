@@ -9,7 +9,14 @@ import SwiftUI
 
 struct LoginContentView: View {
     
+    init(viewModel: LoginViewModel) {
+        self.viewModel = viewModel
+    }
+    
     @EnvironmentObject var appSetting: AppSetting
+    
+    @ObservedObject var viewModel: LoginViewModel
+    
     let buttonFont: Font = .custom("SpoqaHanSans-Regular", size: 17)
     
     var body: some View {
@@ -29,7 +36,7 @@ struct LoginContentView: View {
 
                 //Google
                 Button(action: {
-                    appSetting.isAuthorized = true
+                    self.appSetting.isAuthorized = true
                 }, label: {
                     HStack {
                         Image("google_logo").resizable()
@@ -69,15 +76,8 @@ struct LoginContentView: View {
                             .font(buttonFont)
                     }
                 })
-                .frame(minWidth: 100,
-                       idealWidth: 100,
-                       maxWidth: .infinity,
-                       minHeight: 60,
-                       idealHeight: 60,
-                       maxHeight: 60,
-                       alignment: .center)
+                .modifier(LoginViewModifiers.LoginButtonShape())
                 .background(Color(red: 47/255, green: 47/255, blue: 47/255))
-                .cornerRadius(4)
                 
                 Button(action: {
                     
@@ -86,15 +86,8 @@ struct LoginContentView: View {
                         .foregroundColor(.white)
                         .font(.custom("SpoqaHanSans-Bold", size: 17))
                 })
-                .frame(minWidth: 100,
-                       idealWidth: 100,
-                       maxWidth: .infinity,
-                       minHeight: 60,
-                       idealHeight: 60,
-                       maxHeight: 60,
-                       alignment: .center)
+                .modifier(LoginViewModifiers.LoginButtonShape())
                 .background(Color(red: 77/255, green: 18/255, blue: 223/255))
-                .cornerRadius(4)
                 
                 Button(action: {
                     
@@ -105,15 +98,8 @@ struct LoginContentView: View {
                         .font(.custom("SpoqaHanSans-Regular", size: 17))
                         .underline(true, color: .gray)
                 })
-                .frame(minWidth: 100,
-                       idealWidth: 100,
-                       maxWidth: .infinity,
-                       minHeight: 60,
-                       idealHeight: 60,
-                       maxHeight: 60,
-                       alignment: .center)
+                .modifier(LoginViewModifiers.LoginButtonShape())
                 .background(Color(.clear))
-                .cornerRadius(4)
             }
             .padding(EdgeInsets(top: 0,
                                 leading: 27,
@@ -126,6 +112,7 @@ struct LoginContentView: View {
 
 struct LoginContentView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginContentView()
+        let previewTestViewModel = LoginViewModel()
+        LoginContentView(viewModel: previewTestViewModel)
     }
 }
