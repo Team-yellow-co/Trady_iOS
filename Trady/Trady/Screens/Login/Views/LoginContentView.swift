@@ -13,8 +13,6 @@ struct LoginContentView: View {
         self.viewModel = viewModel
     }
     
-    @EnvironmentObject var appSetting: AppSetting
-    
     @ObservedObject var viewModel: LoginViewModel
     
     let buttonFont: Font = .custom("SpoqaHanSans-Regular", size: 17)
@@ -36,7 +34,7 @@ struct LoginContentView: View {
 
                 //Google
                 Button(action: {
-                    self.appSetting.isAuthorized = true
+                    viewModel.login(with: .google)
                 }, label: {
                     HStack {
                         Image("google_logo").resizable()
@@ -49,16 +47,7 @@ struct LoginContentView: View {
                             .font(buttonFont)
                     }
                 })
-                .frame(minWidth: 100,
-                       idealWidth: 100,
-                       maxWidth: .infinity,
-                       minHeight: 60,
-                       idealHeight: 60,
-                       maxHeight: 60,
-                       alignment: .center)
-                .border(Color("whiteItemBorderColor"),
-                        width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
-                .cornerRadius(4)
+                .modifier(LoginViewModifiers.LoginButtonShape(with: .google))
                 
                 //Apple
                 Button(action: {
@@ -76,8 +65,7 @@ struct LoginContentView: View {
                             .font(buttonFont)
                     }
                 })
-                .modifier(LoginViewModifiers.LoginButtonShape())
-                .background(Color(red: 47/255, green: 47/255, blue: 47/255))
+                .modifier(LoginViewModifiers.LoginButtonShape(with: .apple))
                 
                 Button(action: {
                     
@@ -86,8 +74,7 @@ struct LoginContentView: View {
                         .foregroundColor(.white)
                         .font(.custom("SpoqaHanSans-Bold", size: 17))
                 })
-                .modifier(LoginViewModifiers.LoginButtonShape())
-                .background(Color(red: 77/255, green: 18/255, blue: 223/255))
+                .modifier(LoginViewModifiers.LoginButtonShape(with: .join))
                 
                 Button(action: {
                     
@@ -98,8 +85,7 @@ struct LoginContentView: View {
                         .font(.custom("SpoqaHanSans-Regular", size: 17))
                         .underline(true, color: .gray)
                 })
-                .modifier(LoginViewModifiers.LoginButtonShape())
-                .background(Color(.clear))
+                .modifier(LoginViewModifiers.LoginButtonShape(with: .email))
             }
             .padding(EdgeInsets(top: 0,
                                 leading: 27,
@@ -112,7 +98,7 @@ struct LoginContentView: View {
 
 struct LoginContentView_Previews: PreviewProvider {
     static var previews: some View {
-        let previewTestViewModel = LoginViewModel()
+        let previewTestViewModel = LoginViewModel(setting: AppSetting())
         LoginContentView(viewModel: previewTestViewModel)
     }
 }

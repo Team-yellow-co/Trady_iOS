@@ -12,6 +12,9 @@
 		BAD6AB378730C55F03257438 /* Pods_TradyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CEECDBAE54C7169BA828D7F /* Pods_TradyTests.framework */; };
 		C912D17325C094C8005CA7A5 /* EnteringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C912D17225C094C8005CA7A5 /* EnteringView.swift */; };
 		C95C402B25C1E39800B40E3A /* LoginViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95C402A25C1E39800B40E3A /* LoginViewModifiers.swift */; };
+		C95C403425C33B4300B40E3A /* LoginServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95C403325C33B4300B40E3A /* LoginServiceProtocol.swift */; };
+		C95C403C25C33B6A00B40E3A /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95C403B25C33B6A00B40E3A /* LoginService.swift */; };
+		C95C404125C33D2F00B40E3A /* LoginForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95C404025C33D2F00B40E3A /* LoginForm.swift */; };
 		C967AEDF25BC3E6000A7710F /* TradyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967AEDE25BC3E6000A7710F /* TradyApp.swift */; };
 		C967AEE125BC3E6000A7710F /* LoginContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967AEE025BC3E6000A7710F /* LoginContentView.swift */; };
 		C967AEE325BC3E6200A7710F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C967AEE225BC3E6200A7710F /* Assets.xcassets */; };
@@ -59,6 +62,9 @@
 		A58ADF1C2E986D4FCB36BB04 /* Pods-TradyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TradyTests.debug.xcconfig"; path = "Target Support Files/Pods-TradyTests/Pods-TradyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C912D17225C094C8005CA7A5 /* EnteringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnteringView.swift; sourceTree = "<group>"; };
 		C95C402A25C1E39800B40E3A /* LoginViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModifiers.swift; sourceTree = "<group>"; };
+		C95C403325C33B4300B40E3A /* LoginServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceProtocol.swift; sourceTree = "<group>"; };
+		C95C403B25C33B6A00B40E3A /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		C95C404025C33D2F00B40E3A /* LoginForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginForm.swift; sourceTree = "<group>"; };
 		C967AEDB25BC3E6000A7710F /* Trady.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trady.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C967AEDE25BC3E6000A7710F /* TradyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradyApp.swift; sourceTree = "<group>"; };
 		C967AEE025BC3E6000A7710F /* LoginContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContentView.swift; sourceTree = "<group>"; };
@@ -140,6 +146,31 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		C95C402F25C33B0C00B40E3A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C95C403025C33B1900B40E3A /* Services */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		C95C403025C33B1900B40E3A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C95C403225C33B2F00B40E3A /* Login */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		C95C403225C33B2F00B40E3A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				C95C403325C33B4300B40E3A /* LoginServiceProtocol.swift */,
+				C95C403B25C33B6A00B40E3A /* LoginService.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		C967AED225BC3E6000A7710F = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +196,7 @@
 		C967AEDD25BC3E6000A7710F /* Trady */ = {
 			isa = PBXGroup;
 			children = (
+				C95C402F25C33B0C00B40E3A /* Network */,
 				C98FAF0725BF10F000709042 /* Testing */,
 				C9B5E2DB25BD717B0024678D /* Screens */,
 				C9B5E2CF25BC74ED0024678D /* SupportingFiles */,
@@ -307,6 +339,7 @@
 			children = (
 				C9CDB85C25C1D99100F874CE /* LoginType.swift */,
 				C95C402A25C1E39800B40E3A /* LoginViewModifiers.swift */,
+				C95C404025C33D2F00B40E3A /* LoginForm.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -599,8 +632,11 @@
 				C9B8220825BE422D00AEE7CD /* ChatView.swift in Sources */,
 				C9CDB85425C1D95A00F874CE /* LoginViewModel.swift in Sources */,
 				C95C402B25C1E39800B40E3A /* LoginViewModifiers.swift in Sources */,
+				C95C404125C33D2F00B40E3A /* LoginForm.swift in Sources */,
 				C9CDB85D25C1D99100F874CE /* LoginType.swift in Sources */,
+				C95C403425C33B4300B40E3A /* LoginServiceProtocol.swift in Sources */,
 				C9B821FD25BE409200AEE7CD /* AlarmView.swift in Sources */,
+				C95C403C25C33B6A00B40E3A /* LoginService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,13 @@ import Foundation
 import Combine
 
 class LoginViewModel: ObservableObject {
+    
+    let setting: AppSetting
+    
+    init(setting: AppSetting) {
+        self.setting = setting
+    }
+    
     func login(with type: LoginType) {
         
     }

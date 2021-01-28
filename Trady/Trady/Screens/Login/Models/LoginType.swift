@@ -11,4 +11,5 @@ enum LoginType {
     case google
     case apple
     case email
+    case join
 }

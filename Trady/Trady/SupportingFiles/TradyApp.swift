@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import GoogleSignIn
 
 class AppSetting: ObservableObject {
    @Published var isAuthorized: Bool = false
