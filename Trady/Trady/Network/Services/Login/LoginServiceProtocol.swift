@@ -9,5 +9,5 @@ import Foundation
 import Combine
 
 protocol LoginServiceProtocol {
-    func login(with form: LoginForm) -> AnyPublisher<Void, Error>
+    func login(with form: LoginForm) -> AnyPublisher<(), Error>
 }

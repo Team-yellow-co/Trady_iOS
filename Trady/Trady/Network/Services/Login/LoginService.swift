@@ -12,7 +12,8 @@ import FirebaseAuth
 
 
 struct LoginService: LoginServiceProtocol {
-    func login(with form: LoginForm) -> AnyPublisher<Void, Error> {
+
+    func login(with form: LoginForm) -> AnyPublisher<(), Error> {
         let type = form.type
         switch type {
         case .apple:
@@ -21,10 +22,16 @@ struct LoginService: LoginServiceProtocol {
                 .eraseToAnyPublisher()
             //https://www.raywenderlich.com/4875322-sign-in-with-apple-using-swiftui
         case .google:
-            GIDSignIn.sharedInstance()?.signIn()
-            return Just(())
-                .setFailureType(to: Error.self)
-                .eraseToAnyPublisher()
+            if let googleSignInInstance = GIDSignIn.sharedInstance() {
+                GIDSignIn.sharedInstance()?.combine.signIn
+                    .map { user in
+                        user.authentication
+                    }
+                return Fail(error: APIError.notDefined).eraseToAnyPublisher()
+            } else {
+                return Fail(error: APIError.notDefined).eraseToAnyPublisher()
+            }
+            
         case .email:
             if let email = form.email, let password = form.password {
                 return Future<Void, Error> { promise in
@@ -41,8 +48,9 @@ struct LoginService: LoginServiceProtocol {
                 fallthrough
             }
         default:
-            return Fail(error: NSError(domain: "", code: -1, userInfo: nil))
+            return Fail(error: APIError.notDefined)
                 .eraseToAnyPublisher()
         }
     }
 }
+
