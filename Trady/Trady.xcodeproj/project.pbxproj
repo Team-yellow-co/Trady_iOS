@@ -21,6 +21,14 @@
 		C967AEE625BC3E6200A7710F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C967AEE525BC3E6200A7710F /* Preview Assets.xcassets */; };
 		C967AEF125BC3E6200A7710F /* TradyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967AEF025BC3E6200A7710F /* TradyTests.swift */; };
 		C967AEFC25BC3E6200A7710F /* TradyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967AEFB25BC3E6200A7710F /* TradyUITests.swift */; };
+		C96C5E8A25CEA6F9003C075E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96C5E8925CEA6F9003C075E /* AppDelegate.swift */; };
+		C96C5E9025CEAEAB003C075E /* GoogleSignInProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96C5E8F25CEAEAB003C075E /* GoogleSignInProxy.swift */; };
+		C96C5E9625CEB377003C075E /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96C5E9525CEB377003C075E /* URLSessionProtocol.swift */; };
+		C96C5E9E25CEB389003C075E /* URLSessionTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96C5E9D25CEB389003C075E /* URLSessionTaskProtocol.swift */; };
+		C96C5EA325CEB403003C075E /* URLRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96C5EA225CEB403003C075E /* URLRequestProtocol.swift */; };
+		C96C5EA925CEB434003C075E /* URLResponseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96C5EA825CEB434003C075E /* URLResponseProtocol.swift */; };
+		C96C5EB125CEB461003C075E /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96C5EB025CEB461003C075E /* HTTPStatusCode.swift */; };
+		C97A228825CFFFEB0021893D /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97A228725CFFFEB0021893D /* APIError.swift */; };
 		C98FAF0925BF110E00709042 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98FAF0825BF110E00709042 /* SwiftUIView.swift */; };
 		C9B5E2D425BC750E0024678D /* SpoqaHanSansBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C9B5E2D025BC750C0024678D /* SpoqaHanSansBold.ttf */; };
 		C9B5E2D525BC750E0024678D /* SpoqaHanSansLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C9B5E2D125BC750C0024678D /* SpoqaHanSansLight.ttf */; };
@@ -77,6 +85,14 @@
 		C967AEF725BC3E6200A7710F /* TradyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TradyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C967AEFB25BC3E6200A7710F /* TradyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradyUITests.swift; sourceTree = "<group>"; };
 		C967AEFD25BC3E6200A7710F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C96C5E8925CEA6F9003C075E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C96C5E8F25CEAEAB003C075E /* GoogleSignInProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInProxy.swift; sourceTree = "<group>"; };
+		C96C5E9525CEB377003C075E /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		C96C5E9D25CEB389003C075E /* URLSessionTaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionTaskProtocol.swift; sourceTree = "<group>"; };
+		C96C5EA225CEB403003C075E /* URLRequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestProtocol.swift; sourceTree = "<group>"; };
+		C96C5EA825CEB434003C075E /* URLResponseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLResponseProtocol.swift; sourceTree = "<group>"; };
+		C96C5EB025CEB461003C075E /* HTTPStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPStatusCode.swift; sourceTree = "<group>"; };
+		C97A228725CFFFEB0021893D /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		C98FAF0825BF110E00709042 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		C9B5E2D025BC750C0024678D /* SpoqaHanSansBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SpoqaHanSansBold.ttf; sourceTree = "<group>"; };
 		C9B5E2D125BC750C0024678D /* SpoqaHanSansLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SpoqaHanSansLight.ttf; sourceTree = "<group>"; };
@@ -149,6 +165,7 @@
 		C95C402F25C33B0C00B40E3A /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				C96C5E9425CEB361003C075E /* Utils */,
 				C95C403025C33B1900B40E3A /* Services */,
 			);
 			path = Network;
@@ -165,6 +182,7 @@
 		C95C403225C33B2F00B40E3A /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				C96C5E8E25CEAE79003C075E /* Proxy */,
 				C95C403325C33B4300B40E3A /* LoginServiceProtocol.swift */,
 				C95C403B25C33B6A00B40E3A /* LoginService.swift */,
 			);
@@ -233,6 +251,27 @@
 			path = TradyUITests;
 			sourceTree = "<group>";
 		};
+		C96C5E8E25CEAE79003C075E /* Proxy */ = {
+			isa = PBXGroup;
+			children = (
+				C96C5E8F25CEAEAB003C075E /* GoogleSignInProxy.swift */,
+			);
+			path = Proxy;
+			sourceTree = "<group>";
+		};
+		C96C5E9425CEB361003C075E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C96C5E9525CEB377003C075E /* URLSessionProtocol.swift */,
+				C96C5E9D25CEB389003C075E /* URLSessionTaskProtocol.swift */,
+				C96C5EA225CEB403003C075E /* URLRequestProtocol.swift */,
+				C96C5EA825CEB434003C075E /* URLResponseProtocol.swift */,
+				C96C5EB025CEB461003C075E /* HTTPStatusCode.swift */,
+				C97A228725CFFFEB0021893D /* APIError.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		C98FAF0725BF10F000709042 /* Testing */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +289,7 @@
 				C9B5E2D325BC750E0024678D /* SpoqaHanSansRegular.ttf */,
 				C9B5E2D225BC750D0024678D /* SpoqaHanSansThin.ttf */,
 				C9CDB86125C1DAA400F874CE /* GoogleService-Info.plist */,
+				C96C5E8925CEA6F9003C075E /* AppDelegate.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -622,19 +662,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C96C5E9625CEB377003C075E /* URLSessionProtocol.swift in Sources */,
 				C9B8220D25BE423400AEE7CD /* MyView.swift in Sources */,
 				C9B821F525BE406A00AEE7CD /* FeedView.swift in Sources */,
 				C98FAF0925BF110E00709042 /* SwiftUIView.swift in Sources */,
 				C967AEE125BC3E6000A7710F /* LoginContentView.swift in Sources */,
 				C967AEDF25BC3E6000A7710F /* TradyApp.swift in Sources */,
+				C96C5E9E25CEB389003C075E /* URLSessionTaskProtocol.swift in Sources */,
 				C912D17325C094C8005CA7A5 /* EnteringView.swift in Sources */,
+				C96C5EB125CEB461003C075E /* HTTPStatusCode.swift in Sources */,
 				C9B5E2E325BD72450024678D /* MainTabView.swift in Sources */,
 				C9B8220825BE422D00AEE7CD /* ChatView.swift in Sources */,
+				C97A228825CFFFEB0021893D /* APIError.swift in Sources */,
+				C96C5E8A25CEA6F9003C075E /* AppDelegate.swift in Sources */,
 				C9CDB85425C1D95A00F874CE /* LoginViewModel.swift in Sources */,
 				C95C402B25C1E39800B40E3A /* LoginViewModifiers.swift in Sources */,
+				C96C5EA325CEB403003C075E /* URLRequestProtocol.swift in Sources */,
+				C96C5EA925CEB434003C075E /* URLResponseProtocol.swift in Sources */,
 				C95C404125C33D2F00B40E3A /* LoginForm.swift in Sources */,
 				C9CDB85D25C1D99100F874CE /* LoginType.swift in Sources */,
 				C95C403425C33B4300B40E3A /* LoginServiceProtocol.swift in Sources */,
+				C96C5E9025CEAEAB003C075E /* GoogleSignInProxy.swift in Sources */,
 				C9B821FD25BE409200AEE7CD /* AlarmView.swift in Sources */,
 				C95C403C25C33B6A00B40E3A /* LoginService.swift in Sources */,
 			);

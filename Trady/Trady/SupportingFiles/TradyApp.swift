@@ -16,10 +16,11 @@ class AppSetting: ObservableObject {
 @main
 struct TradyApp: App {
     
-    init() {
+    init() { 
         FirebaseApp.configure()
     }
     
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @Environment(\.scenePhase) private var scenePhase
     
     @StateObject var appSetting = AppSetting()
