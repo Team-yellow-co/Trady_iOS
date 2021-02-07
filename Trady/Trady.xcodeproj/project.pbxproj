@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2E4BFA4D989FEEBCC05FCA35 /* Pods_Trady.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C670F9E0FC76D55F050AC68 /* Pods_Trady.framework */; };
+		32B73AA925D0085800EBDCCD /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B73AA825D0085800EBDCCD /* Post.swift */; };
 		AE63F466D3933B2393B94774 /* Pods_Trady_TradyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8A09BB9EA121274BAE601C1 /* Pods_Trady_TradyUITests.framework */; };
 		BAD6AB378730C55F03257438 /* Pods_TradyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CEECDBAE54C7169BA828D7F /* Pods_TradyTests.framework */; };
 		C912D17325C094C8005CA7A5 /* EnteringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C912D17225C094C8005CA7A5 /* EnteringView.swift */; };
@@ -63,6 +64,7 @@
 
 /* Begin PBXFileReference section */
 		09EA7BEE3898696444147CB6 /* Pods-Trady.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trady.debug.xcconfig"; path = "Target Support Files/Pods-Trady/Pods-Trady.debug.xcconfig"; sourceTree = "<group>"; };
+		32B73AA825D0085800EBDCCD /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		3CEECDBAE54C7169BA828D7F /* Pods_TradyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TradyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E8021374B776390750B5C02 /* Pods-Trady-TradyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trady-TradyUITests.release.xcconfig"; path = "Target Support Files/Pods-Trady-TradyUITests/Pods-Trady-TradyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8C670F9E0FC76D55F050AC68 /* Pods_Trady.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trady.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +141,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		32B73AA725D0084900EBDCCD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				32B73AA825D0085800EBDCCD /* Post.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		4B016228170F8A3B3AD38F37 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +339,7 @@
 		C9B5E2E125BD721F0024678D /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				32B73AA725D0084900EBDCCD /* Model */,
 				C9B821F425BE406A00AEE7CD /* FeedView.swift */,
 			);
 			path = Feed;
@@ -665,6 +676,7 @@
 				C96C5E9625CEB377003C075E /* URLSessionProtocol.swift in Sources */,
 				C9B8220D25BE423400AEE7CD /* MyView.swift in Sources */,
 				C9B821F525BE406A00AEE7CD /* FeedView.swift in Sources */,
+				32B73AA925D0085800EBDCCD /* Post.swift in Sources */,
 				C98FAF0925BF110E00709042 /* SwiftUIView.swift in Sources */,
 				C967AEE125BC3E6000A7710F /* LoginContentView.swift in Sources */,
 				C967AEDF25BC3E6000A7710F /* TradyApp.swift in Sources */,
