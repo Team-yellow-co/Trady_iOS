@@ -11,6 +11,10 @@ import Combine
 
 class GoogleSignInProxy: NSObject, GIDSignInDelegate {
 
+    deinit {
+        signInUserSubject.send(completion: .finished)
+    }
+
     private let signInUserSubject: PassthroughSubject<GIDGoogleUser, Error> = .init()
     
     var signIn: AnyPublisher<GIDGoogleUser, Error> {
@@ -31,8 +35,7 @@ class GoogleSignInProxy: NSObject, GIDSignInDelegate {
 
 extension GIDSignIn {
     
-    var combine: GoogleSignInProxy {
-        let proxy = GoogleSignInProxy()
+    func combine(proxy: GoogleSignInProxy) -> GoogleSignInProxy {
         self.delegate = proxy
         return proxy
     }

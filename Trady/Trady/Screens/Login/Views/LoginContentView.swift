@@ -32,7 +32,7 @@ struct LoginContentView: View {
             
             VStack(alignment: .center, spacing: 10) {
 
-                //Google
+                //Googleß
                 Button(action: {
                     viewModel.login(with: .google)
                 }, label: {

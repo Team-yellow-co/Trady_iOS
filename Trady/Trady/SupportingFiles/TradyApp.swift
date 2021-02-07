@@ -29,6 +29,9 @@ struct TradyApp: App {
         WindowGroup {
             EnteringView()
                 .environmentObject(appSetting)
+                .onOpenURL(perform: { url in
+                    GIDSignIn.sharedInstance().handle(url)
+                })
         }
         .onChange(of: scenePhase) { phase in
             

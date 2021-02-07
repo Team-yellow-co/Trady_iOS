@@ -29,6 +29,8 @@
 		C96C5EA925CEB434003C075E /* URLResponseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96C5EA825CEB434003C075E /* URLResponseProtocol.swift */; };
 		C96C5EB125CEB461003C075E /* HTTPStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96C5EB025CEB461003C075E /* HTTPStatusCode.swift */; };
 		C97A228825CFFFEB0021893D /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97A228725CFFFEB0021893D /* APIError.swift */; };
+		C97A228D25D008CB0021893D /* AuthServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97A228C25D008CB0021893D /* AuthServiceProtocol.swift */; };
+		C97A229225D008F60021893D /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97A229125D008F60021893D /* AuthService.swift */; };
 		C98FAF0925BF110E00709042 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98FAF0825BF110E00709042 /* SwiftUIView.swift */; };
 		C9B5E2D425BC750E0024678D /* SpoqaHanSansBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C9B5E2D025BC750C0024678D /* SpoqaHanSansBold.ttf */; };
 		C9B5E2D525BC750E0024678D /* SpoqaHanSansLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C9B5E2D125BC750C0024678D /* SpoqaHanSansLight.ttf */; };
@@ -93,6 +95,8 @@
 		C96C5EA825CEB434003C075E /* URLResponseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLResponseProtocol.swift; sourceTree = "<group>"; };
 		C96C5EB025CEB461003C075E /* HTTPStatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPStatusCode.swift; sourceTree = "<group>"; };
 		C97A228725CFFFEB0021893D /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		C97A228C25D008CB0021893D /* AuthServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceProtocol.swift; sourceTree = "<group>"; };
+		C97A229125D008F60021893D /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		C98FAF0825BF110E00709042 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		C9B5E2D025BC750C0024678D /* SpoqaHanSansBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SpoqaHanSansBold.ttf; sourceTree = "<group>"; };
 		C9B5E2D125BC750C0024678D /* SpoqaHanSansLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SpoqaHanSansLight.ttf; sourceTree = "<group>"; };
@@ -185,6 +189,8 @@
 				C96C5E8E25CEAE79003C075E /* Proxy */,
 				C95C403325C33B4300B40E3A /* LoginServiceProtocol.swift */,
 				C95C403B25C33B6A00B40E3A /* LoginService.swift */,
+				C97A228C25D008CB0021893D /* AuthServiceProtocol.swift */,
+				C97A229125D008F60021893D /* AuthService.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -663,11 +669,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C96C5E9625CEB377003C075E /* URLSessionProtocol.swift in Sources */,
+				C97A228D25D008CB0021893D /* AuthServiceProtocol.swift in Sources */,
 				C9B8220D25BE423400AEE7CD /* MyView.swift in Sources */,
 				C9B821F525BE406A00AEE7CD /* FeedView.swift in Sources */,
 				C98FAF0925BF110E00709042 /* SwiftUIView.swift in Sources */,
 				C967AEE125BC3E6000A7710F /* LoginContentView.swift in Sources */,
 				C967AEDF25BC3E6000A7710F /* TradyApp.swift in Sources */,
+				C97A229225D008F60021893D /* AuthService.swift in Sources */,
 				C96C5E9E25CEB389003C075E /* URLSessionTaskProtocol.swift in Sources */,
 				C912D17325C094C8005CA7A5 /* EnteringView.swift in Sources */,
 				C96C5EB125CEB461003C075E /* HTTPStatusCode.swift in Sources */,

@@ -7,6 +7,7 @@ target 'Trady' do
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
+  pod 'CryptoKit'
   # Pods for Trady
 
   target 'TradyTests' do

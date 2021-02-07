@@ -12,7 +12,8 @@ import FirebaseAuth
 
 
 struct LoginService: LoginServiceProtocol {
-
+    let authService: AuthServiceProtocol = Auth.auth()
+    let googleSignInProxy = GoogleSignInProxy()
     func login(with form: LoginForm) -> AnyPublisher<(), Error> {
         let type = form.type
         switch type {
@@ -23,11 +24,17 @@ struct LoginService: LoginServiceProtocol {
             //https://www.raywenderlich.com/4875322-sign-in-with-apple-using-swiftui
         case .google:
             if let googleSignInInstance = GIDSignIn.sharedInstance() {
-                GIDSignIn.sharedInstance()?.combine.signIn
-                    .map { user in
-                        user.authentication
-                    }
-                return Fail(error: APIError.notDefined).eraseToAnyPublisher()
+                return googleSignInInstance.combine(proxy: googleSignInProxy).signIn
+                    .flatMap { user -> AnyPublisher<(), Error> in
+                        if let authentification = user.authentication {
+                            let googleAuthInfo = GoogleAuthProvider.credential(withIDToken: authentification.idToken,
+                                                                               accessToken: authentification.accessToken)
+                            return authService.signIn(with: googleAuthInfo)
+                        } else {
+                            return Fail(error: APIError.notDefined)
+                                .eraseToAnyPublisher()
+                        }
+                    }.eraseToAnyPublisher()
             } else {
                 return Fail(error: APIError.notDefined).eraseToAnyPublisher()
             }
