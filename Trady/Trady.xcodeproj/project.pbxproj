@@ -21,6 +21,7 @@
 		C967AEE625BC3E6200A7710F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C967AEE525BC3E6200A7710F /* Preview Assets.xcassets */; };
 		C967AEF125BC3E6200A7710F /* TradyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967AEF025BC3E6200A7710F /* TradyTests.swift */; };
 		C967AEFC25BC3E6200A7710F /* TradyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967AEFB25BC3E6200A7710F /* TradyUITests.swift */; };
+		C96896C125D58B1A0045A35C /* AppleSignInProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96896C025D58B1A0045A35C /* AppleSignInProxy.swift */; };
 		C96C5E8A25CEA6F9003C075E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96C5E8925CEA6F9003C075E /* AppDelegate.swift */; };
 		C96C5E9025CEAEAB003C075E /* GoogleSignInProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96C5E8F25CEAEAB003C075E /* GoogleSignInProxy.swift */; };
 		C96C5E9625CEB377003C075E /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96C5E9525CEB377003C075E /* URLSessionProtocol.swift */; };
@@ -87,6 +88,8 @@
 		C967AEF725BC3E6200A7710F /* TradyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TradyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C967AEFB25BC3E6200A7710F /* TradyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradyUITests.swift; sourceTree = "<group>"; };
 		C967AEFD25BC3E6200A7710F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C96896C025D58B1A0045A35C /* AppleSignInProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignInProxy.swift; sourceTree = "<group>"; };
+		C96896C525D5966A0045A35C /* Trady.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Trady.entitlements; sourceTree = "<group>"; };
 		C96C5E8925CEA6F9003C075E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C96C5E8F25CEAEAB003C075E /* GoogleSignInProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInProxy.swift; sourceTree = "<group>"; };
 		C96C5E9525CEB377003C075E /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
@@ -220,6 +223,7 @@
 		C967AEDD25BC3E6000A7710F /* Trady */ = {
 			isa = PBXGroup;
 			children = (
+				C96896C525D5966A0045A35C /* Trady.entitlements */,
 				C95C402F25C33B0C00B40E3A /* Network */,
 				C98FAF0725BF10F000709042 /* Testing */,
 				C9B5E2DB25BD717B0024678D /* Screens */,
@@ -261,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				C96C5E8F25CEAEAB003C075E /* GoogleSignInProxy.swift */,
+				C96896C025D58B1A0045A35C /* AppleSignInProxy.swift */,
 			);
 			path = Proxy;
 			sourceTree = "<group>";
@@ -683,6 +688,7 @@
 				C9B8220825BE422D00AEE7CD /* ChatView.swift in Sources */,
 				C97A228825CFFFEB0021893D /* APIError.swift in Sources */,
 				C96C5E8A25CEA6F9003C075E /* AppDelegate.swift in Sources */,
+				C96896C125D58B1A0045A35C /* AppleSignInProxy.swift in Sources */,
 				C9CDB85425C1D95A00F874CE /* LoginViewModel.swift in Sources */,
 				C95C402B25C1E39800B40E3A /* LoginViewModifiers.swift in Sources */,
 				C96C5EA325CEB403003C075E /* URLRequestProtocol.swift in Sources */,
@@ -850,6 +856,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Trady/Trady.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Trady/Preview Content\"";
 				DEVELOPMENT_TEAM = CMXKRM464P;
@@ -873,6 +880,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Trady/Trady.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Trady/Preview Content\"";
 				DEVELOPMENT_TEAM = CMXKRM464P;

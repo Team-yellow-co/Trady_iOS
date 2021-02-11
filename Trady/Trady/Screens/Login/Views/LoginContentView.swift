@@ -34,7 +34,8 @@ struct LoginContentView: View {
 
                 //Googleß
                 Button(action: {
-                    viewModel.login(with: .google)
+                    let form = LoginForm(type: .google)
+                    viewModel.login(with: form)
                 }, label: {
                     HStack {
                         Image("google_logo").resizable()
@@ -51,7 +52,8 @@ struct LoginContentView: View {
                 
                 //Apple
                 Button(action: {
-                    
+                    let form = LoginForm(type: .apple)
+                    viewModel.login(with: form)
                 }, label: {
                     HStack {
                         Image("apple_logo")

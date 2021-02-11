@@ -22,8 +22,7 @@ class LoginViewModel: ObservableObject {
     deinit {
         print("LoginViewModel deinit")
     }
-    func login(with type: LoginType) {
-        let form = LoginForm(type: type, email: nil, password: nil)
+    func login(with form: LoginForm) {
         loginService.login(with: form)
             .print("login: ")
             .sink { (completion) in
