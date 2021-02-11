@@ -24,6 +24,8 @@ struct LoginService: LoginServiceProtocol {
             //https://www.raywenderlich.com/4875322-sign-in-with-apple-using-swiftui
         case .google:
             if let googleSignInInstance = GIDSignIn.sharedInstance() {
+                googleSignInInstance.presentingViewController = UIApplication.shared.windows.last?.rootViewController
+                googleSignInInstance.signIn()
                 return googleSignInInstance.combine(proxy: googleSignInProxy).signIn
                     .flatMap { user -> AnyPublisher<(), Error> in
                         if let authentification = user.authentication {

@@ -22,7 +22,6 @@ class GoogleSignInProxy: NSObject, GIDSignInDelegate {
     }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        GIDSignIn.sharedInstance()
         if let error = error {
             signInUserSubject.send(completion: .failure(error))
         } else {

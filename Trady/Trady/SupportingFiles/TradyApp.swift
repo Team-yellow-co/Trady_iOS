@@ -18,6 +18,7 @@ struct TradyApp: App {
     
     init() { 
         FirebaseApp.configure()
+        GIDSignIn.sharedInstance().clientID = "689501957472-okhc147jkv8b9ce9mbl8hjhn695uusa0.apps.googleusercontent.com"
     }
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
