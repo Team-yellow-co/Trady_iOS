@@ -8,34 +8,60 @@
 import Foundation
 import Combine
 
-class LoginViewModel: ObservableObject {
+struct LoginViewModel: ViewModelType {
     
-    private var subscriptions = Set<AnyCancellable>()
-    let loginService: LoginServiceProtocol = LoginService()
-    let setting: AppSetting
+    final class Input: ObservableObject {
+        let loginTrigger: AnyPublisher<LoginForm, Never>
+        
+        init(loginTrigger: AnyPublisher<LoginForm, Never>) {
+            self.loginTrigger = loginTrigger
+        }
+        
+    }
+    
+    final class Output: ObservableObject {
+        @Published var isLoginInProcess: Bool = false
+        @Published var showLoginFailAlert: Bool = false
+        
+        init() {
+            
+        }
+    }
+    
+    private let loginService: LoginServiceProtocol = LoginService()
+    private let setting: AppSetting
     
     init(setting: AppSetting) {
         self.setting = setting
     }
     
-    
-    deinit {
-        print("LoginViewModel deinit")
-    }
-    func login(with form: LoginForm) {
-        loginService.login(with: form)
-            .print("login: ")
+    func transform(input: Input,
+                   subscriptions: SubscriptionBag) -> Output {
+        let output = Output()
+        input.loginTrigger
+            .print("login")
+            .filter { _ in output.isLoginInProcess == false }
+            .handleEvents(receiveOutput: { _ in
+                output.isLoginInProcess = true
+            })
+            .flatMap { form -> AnyPublisher<(), Error> in
+                return self.loginService.login(with: form)
+            }
             .sink { (completion) in
+                output.isLoginInProcess = false
                 switch completion {
                 case .failure(let error):
-                    break
+                    output.showLoginFailAlert = true
                 case .finished:
                     break
                 }
-            } receiveValue: { [weak self] _ in
-                self?.setting.isAuthorized = true
+            } receiveValue: { _ in
+                output.isLoginInProcess = false
+                self.setting.isAuthorized = true
             }
-            .store(in: &subscriptions)
-
+            .store(in: subscriptions)
+        
+        return output
     }
+
 }

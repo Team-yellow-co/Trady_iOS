@@ -22,6 +22,8 @@
 		C967AEF125BC3E6200A7710F /* TradyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967AEF025BC3E6200A7710F /* TradyTests.swift */; };
 		C967AEFC25BC3E6200A7710F /* TradyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C967AEFB25BC3E6200A7710F /* TradyUITests.swift */; };
 		C96896C125D58B1A0045A35C /* AppleSignInProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96896C025D58B1A0045A35C /* AppleSignInProxy.swift */; };
+		C96896CA25D6D93C0045A35C /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96896C925D6D93C0045A35C /* ViewModelType.swift */; };
+		C96896CF25D6F1050045A35C /* SubscriptionBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96896CE25D6F1050045A35C /* SubscriptionBag.swift */; };
 		C96C5E8A25CEA6F9003C075E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96C5E8925CEA6F9003C075E /* AppDelegate.swift */; };
 		C96C5E9025CEAEAB003C075E /* GoogleSignInProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96C5E8F25CEAEAB003C075E /* GoogleSignInProxy.swift */; };
 		C96C5E9625CEB377003C075E /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96C5E9525CEB377003C075E /* URLSessionProtocol.swift */; };
@@ -90,6 +92,8 @@
 		C967AEFD25BC3E6200A7710F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C96896C025D58B1A0045A35C /* AppleSignInProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleSignInProxy.swift; sourceTree = "<group>"; };
 		C96896C525D5966A0045A35C /* Trady.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Trady.entitlements; sourceTree = "<group>"; };
+		C96896C925D6D93C0045A35C /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		C96896CE25D6F1050045A35C /* SubscriptionBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionBag.swift; sourceTree = "<group>"; };
 		C96C5E8925CEA6F9003C075E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C96C5E8F25CEAEAB003C075E /* GoogleSignInProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInProxy.swift; sourceTree = "<group>"; };
 		C96C5E9525CEB377003C075E /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
@@ -301,6 +305,8 @@
 				C9B5E2D225BC750D0024678D /* SpoqaHanSansThin.ttf */,
 				C9CDB86125C1DAA400F874CE /* GoogleService-Info.plist */,
 				C96C5E8925CEA6F9003C075E /* AppDelegate.swift */,
+				C96896C925D6D93C0045A35C /* ViewModelType.swift */,
+				C96896CE25D6F1050045A35C /* SubscriptionBag.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -699,6 +705,8 @@
 				C96C5E9025CEAEAB003C075E /* GoogleSignInProxy.swift in Sources */,
 				C9B821FD25BE409200AEE7CD /* AlarmView.swift in Sources */,
 				C95C403C25C33B6A00B40E3A /* LoginService.swift in Sources */,
+				C96896CF25D6F1050045A35C /* SubscriptionBag.swift in Sources */,
+				C96896CA25D6D93C0045A35C /* ViewModelType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,14 +6,27 @@
 //
 
 import SwiftUI
+import Combine
 
 struct LoginContentView: View {
     
+    let loginTrigger: PassthroughSubject<LoginForm, Never>
+    let subscriptions = SubscriptionBag()
+    
+    @ObservedObject var input: LoginViewModel.Input
+    @ObservedObject var output: LoginViewModel.Output = .init()
+    
     init(viewModel: LoginViewModel) {
         self.viewModel = viewModel
+        let loginTrigger = PassthroughSubject<LoginForm, Never>()
+        self.loginTrigger = loginTrigger
+        self.input = LoginViewModel.Input(loginTrigger: loginTrigger.eraseToAnyPublisher())
+        let output = viewModel.transform(input: input,
+                                              subscriptions: subscriptions)
+        self.output = output
     }
     
-    @ObservedObject var viewModel: LoginViewModel
+    var viewModel: LoginViewModel
     
     let buttonFont: Font = .custom("SpoqaHanSans-Regular", size: 17)
     
@@ -32,16 +45,16 @@ struct LoginContentView: View {
             
             VStack(alignment: .center, spacing: 10) {
 
-                //Googleß
+                //Google
                 Button(action: {
                     let form = LoginForm(type: .google)
-                    viewModel.login(with: form)
+                    loginTrigger.send(form)
                 }, label: {
                     HStack {
                         Image("google_logo").resizable()
                             .frame(width: 30,
                                    height: 30,
-                                   alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                   alignment: .center)
                             .scaledToFit()
                         Text("Google로 로그인")
                             .foregroundColor(.black)
@@ -53,7 +66,7 @@ struct LoginContentView: View {
                 //Apple
                 Button(action: {
                     let form = LoginForm(type: .apple)
-                    viewModel.login(with: form)
+                    loginTrigger.send(form)
                 }, label: {
                     HStack {
                         Image("apple_logo")
@@ -94,8 +107,8 @@ struct LoginContentView: View {
                                 bottom: 0,
                                 trailing: 27))
         }
-        
     }
+    
 }
 
 struct LoginContentView_Previews: PreviewProvider {
