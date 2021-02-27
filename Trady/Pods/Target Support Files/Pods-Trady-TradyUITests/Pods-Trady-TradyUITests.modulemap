@@ -1,0 +1,6 @@
+framework module Pods_Trady_TradyUITests {
+  umbrella header "Pods-Trady-TradyUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
