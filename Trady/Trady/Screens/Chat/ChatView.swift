@@ -9,9 +9,19 @@ import SwiftUI
 
 struct ChatView: View {
     var body: some View {
-        Text("ChatView")
-    }
+        ScrollView(.vertical,
+                   showsIndicators: false,
+                   content: {
+                    ForEach(0..<10, id:\.self) { index in
+                        ChatBubbleView(position: .right,
+                                       color: .black) {
+                            Text("d")
+                        }
+                    }
+                   })
+        }
 }
+
 
 struct ChatView_Previews: PreviewProvider {
     static var previews: some View {

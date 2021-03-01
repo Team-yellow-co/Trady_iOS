@@ -47,6 +47,12 @@
 		C9CDB85425C1D95A00F874CE /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CDB85325C1D95A00F874CE /* LoginViewModel.swift */; };
 		C9CDB85D25C1D99100F874CE /* LoginType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CDB85C25C1D99100F874CE /* LoginType.swift */; };
 		C9CDB86225C1DAA400F874CE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9CDB86125C1DAA400F874CE /* GoogleService-Info.plist */; };
+		CE3781E625ECF77100310E2B /* FirebaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3781E525ECF77100310E2B /* FirebaseRequest.swift */; };
+		CE3781EB25ECF80200310E2B /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3781EA25ECF80200310E2B /* Network.swift */; };
+		CE37820B25ECFCDE00310E2B /* FireStoreServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37820A25ECFCDE00310E2B /* FireStoreServer.swift */; };
+		CE37821125ED4E7D00310E2B /* AppPhaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37821025ED4E7D00310E2B /* AppPhaseManager.swift */; };
+		CE37821625ED52F100310E2B /* ChatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37821525ED52F100310E2B /* ChatBubbleView.swift */; };
+		CE37821C25ED536800310E2B /* ChatBubblePosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37821B25ED536800310E2B /* ChatBubblePosition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +123,12 @@
 		C9CDB85325C1D95A00F874CE /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		C9CDB85C25C1D99100F874CE /* LoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginType.swift; sourceTree = "<group>"; };
 		C9CDB86125C1DAA400F874CE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CE3781E525ECF77100310E2B /* FirebaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRequest.swift; sourceTree = "<group>"; };
+		CE3781EA25ECF80200310E2B /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		CE37820A25ECFCDE00310E2B /* FireStoreServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreServer.swift; sourceTree = "<group>"; };
+		CE37821025ED4E7D00310E2B /* AppPhaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPhaseManager.swift; sourceTree = "<group>"; };
+		CE37821525ED52F100310E2B /* ChatBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleView.swift; sourceTree = "<group>"; };
+		CE37821B25ED536800310E2B /* ChatBubblePosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubblePosition.swift; sourceTree = "<group>"; };
 		D89A31F2CCA6F277E20BB2E3 /* Pods-Trady-TradyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trady-TradyUITests.debug.xcconfig"; path = "Target Support Files/Pods-Trady-TradyUITests/Pods-Trady-TradyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E0C19B4823882085D8508280 /* Pods-Trady.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trady.release.xcconfig"; path = "Target Support Files/Pods-Trady/Pods-Trady.release.xcconfig"; sourceTree = "<group>"; };
 		F8A09BB9EA121274BAE601C1 /* Pods_Trady_TradyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trady_TradyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -178,6 +190,7 @@
 			children = (
 				C96C5E9425CEB361003C075E /* Utils */,
 				C95C403025C33B1900B40E3A /* Services */,
+				CE3781EA25ECF80200310E2B /* Network.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -277,6 +290,7 @@
 		C96C5E9425CEB361003C075E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				CE3781E425ECF75300310E2B /* Firebase */,
 				C96C5E9525CEB377003C075E /* URLSessionProtocol.swift */,
 				C96C5E9D25CEB389003C075E /* URLSessionTaskProtocol.swift */,
 				C96C5EA225CEB403003C075E /* URLRequestProtocol.swift */,
@@ -298,6 +312,7 @@
 		C9B5E2CF25BC74ED0024678D /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				CE37820F25ED4E6F00310E2B /* AppPhaseManager */,
 				C967AEDE25BC3E6000A7710F /* TradyApp.swift */,
 				C9B5E2D025BC750C0024678D /* SpoqaHanSansBold.ttf */,
 				C9B5E2D125BC750C0024678D /* SpoqaHanSansLight.ttf */,
@@ -362,7 +377,9 @@
 		C9B821FA25BE407900AEE7CD /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				CE37821A25ED534600310E2B /* Models */,
 				C9B8220725BE422D00AEE7CD /* ChatView.swift */,
+				CE37821525ED52F100310E2B /* ChatBubbleView.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -397,6 +414,31 @@
 				C9CDB85C25C1D99100F874CE /* LoginType.swift */,
 				C95C402A25C1E39800B40E3A /* LoginViewModifiers.swift */,
 				C95C404025C33D2F00B40E3A /* LoginForm.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CE3781E425ECF75300310E2B /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				CE3781E525ECF77100310E2B /* FirebaseRequest.swift */,
+				CE37820A25ECFCDE00310E2B /* FireStoreServer.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		CE37820F25ED4E6F00310E2B /* AppPhaseManager */ = {
+			isa = PBXGroup;
+			children = (
+				CE37821025ED4E7D00310E2B /* AppPhaseManager.swift */,
+			);
+			path = AppPhaseManager;
+			sourceTree = "<group>";
+		};
+		CE37821A25ED534600310E2B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CE37821B25ED536800310E2B /* ChatBubblePosition.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -680,6 +722,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C96C5E9625CEB377003C075E /* URLSessionProtocol.swift in Sources */,
+				CE37820B25ECFCDE00310E2B /* FireStoreServer.swift in Sources */,
 				C97A228D25D008CB0021893D /* AuthServiceProtocol.swift in Sources */,
 				C9B8220D25BE423400AEE7CD /* MyView.swift in Sources */,
 				C9B821F525BE406A00AEE7CD /* FeedView.swift in Sources */,
@@ -692,19 +735,24 @@
 				C96C5EB125CEB461003C075E /* HTTPStatusCode.swift in Sources */,
 				C9B5E2E325BD72450024678D /* MainTabView.swift in Sources */,
 				C9B8220825BE422D00AEE7CD /* ChatView.swift in Sources */,
+				CE3781E625ECF77100310E2B /* FirebaseRequest.swift in Sources */,
 				C97A228825CFFFEB0021893D /* APIError.swift in Sources */,
 				C96C5E8A25CEA6F9003C075E /* AppDelegate.swift in Sources */,
 				C96896C125D58B1A0045A35C /* AppleSignInProxy.swift in Sources */,
 				C9CDB85425C1D95A00F874CE /* LoginViewModel.swift in Sources */,
 				C95C402B25C1E39800B40E3A /* LoginViewModifiers.swift in Sources */,
 				C96C5EA325CEB403003C075E /* URLRequestProtocol.swift in Sources */,
+				CE37821625ED52F100310E2B /* ChatBubbleView.swift in Sources */,
+				CE3781EB25ECF80200310E2B /* Network.swift in Sources */,
 				C96C5EA925CEB434003C075E /* URLResponseProtocol.swift in Sources */,
 				C95C404125C33D2F00B40E3A /* LoginForm.swift in Sources */,
 				C9CDB85D25C1D99100F874CE /* LoginType.swift in Sources */,
 				C95C403425C33B4300B40E3A /* LoginServiceProtocol.swift in Sources */,
 				C96C5E9025CEAEAB003C075E /* GoogleSignInProxy.swift in Sources */,
+				CE37821C25ED536800310E2B /* ChatBubblePosition.swift in Sources */,
 				C9B821FD25BE409200AEE7CD /* AlarmView.swift in Sources */,
 				C95C403C25C33B6A00B40E3A /* LoginService.swift in Sources */,
+				CE37821125ED4E7D00310E2B /* AppPhaseManager.swift in Sources */,
 				C96896CF25D6F1050045A35C /* SubscriptionBag.swift in Sources */,
 				C96896CA25D6D93C0045A35C /* ViewModelType.swift in Sources */,
 			);
