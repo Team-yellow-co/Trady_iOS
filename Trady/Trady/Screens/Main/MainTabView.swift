@@ -13,7 +13,8 @@ struct MainTabView: View {
     }
     var body: some View {
         TabView {
-            FeedView()
+            let feedVM = FeedViewModel()
+            FeedView(viewModel: feedVM)
                 .tabItem { Image("tab_home") }
             ChatView()
                 .tabItem { Image("tab_chat") }

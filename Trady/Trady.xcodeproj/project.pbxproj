@@ -47,6 +47,9 @@
 		C9CDB85425C1D95A00F874CE /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CDB85325C1D95A00F874CE /* LoginViewModel.swift */; };
 		C9CDB85D25C1D99100F874CE /* LoginType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CDB85C25C1D99100F874CE /* LoginType.swift */; };
 		C9CDB86225C1DAA400F874CE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9CDB86125C1DAA400F874CE /* GoogleService-Info.plist */; };
+		CE11120F26A08553002021DF /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE11120E26A08553002021DF /* FeedViewModel.swift */; };
+		CE11121726A08595002021DF /* FeedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE11121626A08595002021DF /* FeedCellViewModel.swift */; };
+		CE11122426A08742002021DF /* FeedCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE11122326A08742002021DF /* FeedCellView.swift */; };
 		CE3781E625ECF77100310E2B /* FirebaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3781E525ECF77100310E2B /* FirebaseRequest.swift */; };
 		CE3781EB25ECF80200310E2B /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3781EA25ECF80200310E2B /* Network.swift */; };
 		CE37820B25ECFCDE00310E2B /* FireStoreServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37820A25ECFCDE00310E2B /* FireStoreServer.swift */; };
@@ -123,6 +126,9 @@
 		C9CDB85325C1D95A00F874CE /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		C9CDB85C25C1D99100F874CE /* LoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginType.swift; sourceTree = "<group>"; };
 		C9CDB86125C1DAA400F874CE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CE11120E26A08553002021DF /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		CE11121626A08595002021DF /* FeedCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellViewModel.swift; sourceTree = "<group>"; };
+		CE11122326A08742002021DF /* FeedCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellView.swift; sourceTree = "<group>"; };
 		CE3781E525ECF77100310E2B /* FirebaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRequest.swift; sourceTree = "<group>"; };
 		CE3781EA25ECF80200310E2B /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		CE37820A25ECFCDE00310E2B /* FireStoreServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreServer.swift; sourceTree = "<group>"; };
@@ -361,7 +367,9 @@
 		C9B5E2E125BD721F0024678D /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				CE11120D26A0853E002021DF /* ViewModels */,
 				C9B821F425BE406A00AEE7CD /* FeedView.swift */,
+				CE11122326A08742002021DF /* FeedCellView.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -416,6 +424,15 @@
 				C95C404025C33D2F00B40E3A /* LoginForm.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		CE11120D26A0853E002021DF /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				CE11120E26A08553002021DF /* FeedViewModel.swift */,
+				CE11121626A08595002021DF /* FeedCellViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		CE3781E425ECF75300310E2B /* Firebase */ = {
@@ -721,7 +738,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE11120F26A08553002021DF /* FeedViewModel.swift in Sources */,
 				C96C5E9625CEB377003C075E /* URLSessionProtocol.swift in Sources */,
+				CE11121726A08595002021DF /* FeedCellViewModel.swift in Sources */,
 				CE37820B25ECFCDE00310E2B /* FireStoreServer.swift in Sources */,
 				C97A228D25D008CB0021893D /* AuthServiceProtocol.swift in Sources */,
 				C9B8220D25BE423400AEE7CD /* MyView.swift in Sources */,
@@ -741,6 +760,7 @@
 				C96896C125D58B1A0045A35C /* AppleSignInProxy.swift in Sources */,
 				C9CDB85425C1D95A00F874CE /* LoginViewModel.swift in Sources */,
 				C95C402B25C1E39800B40E3A /* LoginViewModifiers.swift in Sources */,
+				CE11122426A08742002021DF /* FeedCellView.swift in Sources */,
 				C96C5EA325CEB403003C075E /* URLRequestProtocol.swift in Sources */,
 				CE37821625ED52F100310E2B /* ChatBubbleView.swift in Sources */,
 				CE3781EB25ECF80200310E2B /* Network.swift in Sources */,

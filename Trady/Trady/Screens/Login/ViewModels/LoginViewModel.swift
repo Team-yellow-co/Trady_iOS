@@ -16,7 +16,6 @@ struct LoginViewModel: ViewModelType {
         init(loginTrigger: AnyPublisher<LoginForm, Never>) {
             self.loginTrigger = loginTrigger
         }
-        
     }
     
     final class Output: ObservableObject {

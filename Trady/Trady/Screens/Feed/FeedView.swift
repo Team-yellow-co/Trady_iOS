@@ -8,13 +8,29 @@
 import SwiftUI
 
 struct FeedView: View {
+    private var viewModel: FeedViewModel
+    
+    init(viewModel: FeedViewModel) {
+        self.viewModel = viewModel
+    }
+    
     var body: some View {
-        Text("FeedView")
+        NavigationView {
+            List {
+                ForEach(viewModel.feedCellViewModels) { cellVM in
+                    FeedCellView()
+                }
+            }
+            .navigationTitle("Trady")
+            .navigationBarTitleDisplayMode(.inline)
+        }
+        
     }
 }
 
 struct FeedView_Previews: PreviewProvider {
     static var previews: some View {
-        FeedView()
+        let previewVM = FeedViewModel()
+        FeedView(viewModel: previewVM)
     }
 }
