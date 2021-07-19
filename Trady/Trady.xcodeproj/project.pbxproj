@@ -50,6 +50,10 @@
 		CE11120F26A08553002021DF /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE11120E26A08553002021DF /* FeedViewModel.swift */; };
 		CE11121726A08595002021DF /* FeedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE11121626A08595002021DF /* FeedCellViewModel.swift */; };
 		CE11122426A08742002021DF /* FeedCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE11122326A08742002021DF /* FeedCellView.swift */; };
+		CE11122926A5B7DC002021DF /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE11122826A5B7DC002021DF /* Colors.swift */; };
+		CE11122E26A5C5B3002021DF /* FeedWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE11122D26A5C5B2002021DF /* FeedWriteView.swift */; };
+		CE11123326A5C850002021DF /* FeedWriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE11123226A5C850002021DF /* FeedWriteViewModel.swift */; };
+		CE11123926A5C971002021DF /* EventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE11123826A5C971002021DF /* EventHandler.swift */; };
 		CE3781E625ECF77100310E2B /* FirebaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3781E525ECF77100310E2B /* FirebaseRequest.swift */; };
 		CE3781EB25ECF80200310E2B /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3781EA25ECF80200310E2B /* Network.swift */; };
 		CE37820B25ECFCDE00310E2B /* FireStoreServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37820A25ECFCDE00310E2B /* FireStoreServer.swift */; };
@@ -129,6 +133,10 @@
 		CE11120E26A08553002021DF /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		CE11121626A08595002021DF /* FeedCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellViewModel.swift; sourceTree = "<group>"; };
 		CE11122326A08742002021DF /* FeedCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellView.swift; sourceTree = "<group>"; };
+		CE11122826A5B7DC002021DF /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		CE11122D26A5C5B2002021DF /* FeedWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedWriteView.swift; sourceTree = "<group>"; };
+		CE11123226A5C850002021DF /* FeedWriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedWriteViewModel.swift; sourceTree = "<group>"; };
+		CE11123826A5C971002021DF /* EventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHandler.swift; sourceTree = "<group>"; };
 		CE3781E525ECF77100310E2B /* FirebaseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRequest.swift; sourceTree = "<group>"; };
 		CE3781EA25ECF80200310E2B /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		CE37820A25ECFCDE00310E2B /* FireStoreServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreServer.swift; sourceTree = "<group>"; };
@@ -318,6 +326,7 @@
 		C9B5E2CF25BC74ED0024678D /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				CE11123726A5C95A002021DF /* EventHandler */,
 				CE37820F25ED4E6F00310E2B /* AppPhaseManager */,
 				C967AEDE25BC3E6000A7710F /* TradyApp.swift */,
 				C9B5E2D025BC750C0024678D /* SpoqaHanSansBold.ttf */,
@@ -328,6 +337,7 @@
 				C96C5E8925CEA6F9003C075E /* AppDelegate.swift */,
 				C96896C925D6D93C0045A35C /* ViewModelType.swift */,
 				C96896CE25D6F1050045A35C /* SubscriptionBag.swift */,
+				CE11122826A5B7DC002021DF /* Colors.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -370,6 +380,7 @@
 				CE11120D26A0853E002021DF /* ViewModels */,
 				C9B821F425BE406A00AEE7CD /* FeedView.swift */,
 				CE11122326A08742002021DF /* FeedCellView.swift */,
+				CE11122D26A5C5B2002021DF /* FeedWriteView.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -431,8 +442,17 @@
 			children = (
 				CE11120E26A08553002021DF /* FeedViewModel.swift */,
 				CE11121626A08595002021DF /* FeedCellViewModel.swift */,
+				CE11123226A5C850002021DF /* FeedWriteViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		CE11123726A5C95A002021DF /* EventHandler */ = {
+			isa = PBXGroup;
+			children = (
+				CE11123826A5C971002021DF /* EventHandler.swift */,
+			);
+			path = EventHandler;
 			sourceTree = "<group>";
 		};
 		CE3781E425ECF75300310E2B /* Firebase */ = {
@@ -769,11 +789,15 @@
 				C9CDB85D25C1D99100F874CE /* LoginType.swift in Sources */,
 				C95C403425C33B4300B40E3A /* LoginServiceProtocol.swift in Sources */,
 				C96C5E9025CEAEAB003C075E /* GoogleSignInProxy.swift in Sources */,
+				CE11122E26A5C5B3002021DF /* FeedWriteView.swift in Sources */,
+				CE11122926A5B7DC002021DF /* Colors.swift in Sources */,
 				CE37821C25ED536800310E2B /* ChatBubblePosition.swift in Sources */,
 				C9B821FD25BE409200AEE7CD /* AlarmView.swift in Sources */,
 				C95C403C25C33B6A00B40E3A /* LoginService.swift in Sources */,
+				CE11123926A5C971002021DF /* EventHandler.swift in Sources */,
 				CE37821125ED4E7D00310E2B /* AppPhaseManager.swift in Sources */,
 				C96896CF25D6F1050045A35C /* SubscriptionBag.swift in Sources */,
+				CE11123326A5C850002021DF /* FeedWriteViewModel.swift in Sources */,
 				C96896CA25D6D93C0045A35C /* ViewModelType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

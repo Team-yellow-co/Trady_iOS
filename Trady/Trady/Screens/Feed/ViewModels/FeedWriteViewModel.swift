@@ -1,27 +1,24 @@
 //
-//  FeedViewModel.swift
+//  FeedWriteViewModel.swift
 //  Trady
 //
-//  Created by USER on 2021/07/16.
+//  Created by USER on 2021/07/19.
 //
 
 import Foundation
-import Combine
+import SwiftUI
 
-class FeedViewModel: EventHandler {
+class FeedWriteViewModel: EventHandler {
     
-    @Published var feedCellViewModels: [FeedCellViewModel] = []
-    private(set) var feedWriteViewModel: FeedWriteViewModel = FeedWriteViewModel()
+    @Published private(set) var isPresented = false
     weak var parent: EventHandler?
     var children: [EventHandler] = []
     
-    @Published private(set) var isFeedWriteViewShowing = false
-    
     init() {
-        (0...10).forEach { _ in
-            feedCellViewModels.append(FeedCellViewModel())
-        }
-        add(child: feedWriteViewModel)
+    }
+    
+    deinit {
+        removeFromParent()
     }
     
     func receive(event: Event) {
@@ -31,7 +28,7 @@ class FeedViewModel: EventHandler {
             }
             switch feedEvent {
             case .writeButtonTouched:
-                break
+                isPresented = true
             default:
                 break
             }
@@ -40,4 +37,5 @@ class FeedViewModel: EventHandler {
             return
         }
     }
+    
 }
