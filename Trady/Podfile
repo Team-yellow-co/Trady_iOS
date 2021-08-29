@@ -8,6 +8,7 @@ target 'Trady' do
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
   pod 'CryptoKit'
+  pod 'Firebase/Core'
   pod 'Firebase/Firestore'
   # Pods for Trady
 

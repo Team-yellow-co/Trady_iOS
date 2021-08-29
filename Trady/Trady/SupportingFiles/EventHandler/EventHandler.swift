@@ -48,4 +48,5 @@ protocol FeedEventType: Event {
 
 enum FeedEvent: FeedEventType {
     case writeButtonTouched
+    case onAppear
 }

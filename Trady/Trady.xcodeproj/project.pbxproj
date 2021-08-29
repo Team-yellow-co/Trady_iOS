@@ -60,6 +60,10 @@
 		CE37821125ED4E7D00310E2B /* AppPhaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37821025ED4E7D00310E2B /* AppPhaseManager.swift */; };
 		CE37821625ED52F100310E2B /* ChatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37821525ED52F100310E2B /* ChatBubbleView.swift */; };
 		CE37821C25ED536800310E2B /* ChatBubblePosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37821B25ED536800310E2B /* ChatBubblePosition.swift */; };
+		CE75BEAC26DB6CA7009E5032 /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75BEAB26DB6CA7009E5032 /* FeedService.swift */; };
+		CE75BEB126DB6CC0009E5032 /* FeedServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75BEB026DB6CC0009E5032 /* FeedServiceProtocol.swift */; };
+		CE75BEB626DB7DC3009E5032 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75BEB526DB7DC3009E5032 /* Post.swift */; };
+		CE75BEBB26DB80A5009E5032 /* TradyApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75BEBA26DB80A5009E5032 /* TradyApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +147,10 @@
 		CE37821025ED4E7D00310E2B /* AppPhaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPhaseManager.swift; sourceTree = "<group>"; };
 		CE37821525ED52F100310E2B /* ChatBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleView.swift; sourceTree = "<group>"; };
 		CE37821B25ED536800310E2B /* ChatBubblePosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubblePosition.swift; sourceTree = "<group>"; };
+		CE75BEAB26DB6CA7009E5032 /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
+		CE75BEB026DB6CC0009E5032 /* FeedServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceProtocol.swift; sourceTree = "<group>"; };
+		CE75BEB526DB7DC3009E5032 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		CE75BEBA26DB80A5009E5032 /* TradyApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradyApi.swift; sourceTree = "<group>"; };
 		D89A31F2CCA6F277E20BB2E3 /* Pods-Trady-TradyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trady-TradyUITests.debug.xcconfig"; path = "Target Support Files/Pods-Trady-TradyUITests/Pods-Trady-TradyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E0C19B4823882085D8508280 /* Pods-Trady.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trady.release.xcconfig"; path = "Target Support Files/Pods-Trady/Pods-Trady.release.xcconfig"; sourceTree = "<group>"; };
 		F8A09BB9EA121274BAE601C1 /* Pods_Trady_TradyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trady_TradyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -212,7 +220,9 @@
 		C95C403025C33B1900B40E3A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				CE75BEAA26DB6C9D009E5032 /* Feed */,
 				C95C403225C33B2F00B40E3A /* Login */,
+				CE75BEBA26DB80A5009E5032 /* TradyApi.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -478,6 +488,16 @@
 				CE37821B25ED536800310E2B /* ChatBubblePosition.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		CE75BEAA26DB6C9D009E5032 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				CE75BEAB26DB6CA7009E5032 /* FeedService.swift */,
+				CE75BEB026DB6CC0009E5032 /* FeedServiceProtocol.swift */,
+				CE75BEB526DB7DC3009E5032 /* Post.swift */,
+			);
+			path = Feed;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -769,6 +789,7 @@
 				C967AEE125BC3E6000A7710F /* LoginContentView.swift in Sources */,
 				C967AEDF25BC3E6000A7710F /* TradyApp.swift in Sources */,
 				C97A229225D008F60021893D /* AuthService.swift in Sources */,
+				CE75BEB126DB6CC0009E5032 /* FeedServiceProtocol.swift in Sources */,
 				C96C5E9E25CEB389003C075E /* URLSessionTaskProtocol.swift in Sources */,
 				C912D17325C094C8005CA7A5 /* EnteringView.swift in Sources */,
 				C96C5EB125CEB461003C075E /* HTTPStatusCode.swift in Sources */,
@@ -780,7 +801,9 @@
 				C96896C125D58B1A0045A35C /* AppleSignInProxy.swift in Sources */,
 				C9CDB85425C1D95A00F874CE /* LoginViewModel.swift in Sources */,
 				C95C402B25C1E39800B40E3A /* LoginViewModifiers.swift in Sources */,
+				CE75BEB626DB7DC3009E5032 /* Post.swift in Sources */,
 				CE11122426A08742002021DF /* FeedCellView.swift in Sources */,
+				CE75BEAC26DB6CA7009E5032 /* FeedService.swift in Sources */,
 				C96C5EA325CEB403003C075E /* URLRequestProtocol.swift in Sources */,
 				CE37821625ED52F100310E2B /* ChatBubbleView.swift in Sources */,
 				CE3781EB25ECF80200310E2B /* Network.swift in Sources */,
@@ -792,6 +815,7 @@
 				CE11122E26A5C5B3002021DF /* FeedWriteView.swift in Sources */,
 				CE11122926A5B7DC002021DF /* Colors.swift in Sources */,
 				CE37821C25ED536800310E2B /* ChatBubblePosition.swift in Sources */,
+				CE75BEBB26DB80A5009E5032 /* TradyApi.swift in Sources */,
 				C9B821FD25BE409200AEE7CD /* AlarmView.swift in Sources */,
 				C95C403C25C33B6A00B40E3A /* LoginService.swift in Sources */,
 				CE11123926A5C971002021DF /* EventHandler.swift in Sources */,

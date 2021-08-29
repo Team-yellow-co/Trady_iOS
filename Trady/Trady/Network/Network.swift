@@ -12,3 +12,7 @@ protocol Network {
     func dispatch(request: URLRequestProtocol, completion: @escaping (Result<Data?, Error>) -> Void)
     func dispatch(request: URLRequestProtocol) -> AnyPublisher<Data?, Error>
 }
+
+
+
+

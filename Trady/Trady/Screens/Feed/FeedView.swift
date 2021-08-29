@@ -41,7 +41,9 @@ struct FeedView: View {
                 FeedWriteView(viewModel: viewModel.feedWriteViewModel)
             }
         }
-        
+        .onAppear(perform: {
+            viewModel.send(event: FeedEvent.onAppear)
+        })
     }
 }
 

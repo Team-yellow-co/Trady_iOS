@@ -10,6 +10,7 @@ import Combine
 
 class FeedViewModel: EventHandler {
     
+    private let feedService = FeedService()
     @Published var feedCellViewModels: [FeedCellViewModel] = []
     private(set) var feedWriteViewModel: FeedWriteViewModel = FeedWriteViewModel()
     weak var parent: EventHandler?
@@ -32,6 +33,8 @@ class FeedViewModel: EventHandler {
             switch feedEvent {
             case .writeButtonTouched:
                 break
+            case .onAppear:
+                
             default:
                 break
             }

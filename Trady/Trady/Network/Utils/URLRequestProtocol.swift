@@ -16,6 +16,7 @@ protocol URLRequestProtocol {
 
 enum Query {
     case orderBy(OrderByType)
+    case whereField(WhereFieldType)
     case equalTo
     case limitToLast
     case limitToFirst
@@ -26,6 +27,11 @@ enum Query {
 enum OrderByType {
     case child
     case key
+}
+
+enum WhereFieldType {
+    case array(String)
+    case element(String)
 }
 
 enum ObservingType {
