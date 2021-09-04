@@ -27,6 +27,8 @@ class FeedService: FeedServiceProtocol {
                                       queries: api.parameters,
                                       body: nil)
         return network.dispatch(request: request)
-            .
+            .compactMap { $0 }
+            .decode(type: [Post].self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
     }
 }

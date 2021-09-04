@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-struct LoginViewModel: ViewModelType {
+class LoginViewModel: ViewModelType {
     
     final class Input: ObservableObject {
         let loginTrigger: AnyPublisher<LoginForm, Never>
@@ -29,13 +29,13 @@ struct LoginViewModel: ViewModelType {
     
     private let loginService: LoginServiceProtocol = LoginService()
     private let setting: AppSetting
+    private var subscriptions = Set<AnyCancellable>()
     
     init(setting: AppSetting) {
         self.setting = setting
     }
     
-    func transform(input: Input,
-                   subscriptions: SubscriptionBag) -> Output {
+    func transform(input: Input) -> Output {
         let output = Output()
         input.loginTrigger
             .print("login")
@@ -43,22 +43,25 @@ struct LoginViewModel: ViewModelType {
             .handleEvents(receiveOutput: { _ in
                 output.isLoginInProcess = true
             })
-            .flatMap { form -> AnyPublisher<(), Error> in
+            .flatMap { form -> AnyPublisher<Result<(), Error>, Never> in
                 return self.loginService.login(with: form)
+                    .map { return Result<(), Error>.success(())}
+                    .catch { error in
+                        return Just(Result.failure(error)).eraseToAnyPublisher()
+                    }
+                    .eraseToAnyPublisher()
             }
             .sink { (completion) in
+            } receiveValue: { result in
                 output.isLoginInProcess = false
-                switch completion {
+                switch result {
                 case .failure(let error):
                     output.showLoginFailAlert = true
-                case .finished:
-                    break
+                case .success:
+                    self.setting.isAuthorized = true
                 }
-            } receiveValue: { _ in
-                output.isLoginInProcess = false
-                self.setting.isAuthorized = true
             }
-            .store(in: subscriptions)
+            .store(in: &subscriptions)
         
         return output
     }

@@ -21,8 +21,7 @@ struct LoginContentView: View {
         let loginTrigger = PassthroughSubject<LoginForm, Never>()
         self.loginTrigger = loginTrigger
         self.input = LoginViewModel.Input(loginTrigger: loginTrigger.eraseToAnyPublisher())
-        let output = viewModel.transform(input: input,
-                                              subscriptions: subscriptions)
+        let output = viewModel.transform(input: input)
         self.output = output
     }
     

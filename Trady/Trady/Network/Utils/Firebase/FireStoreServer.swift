@@ -76,7 +76,8 @@ class FireStoreServer: Network {
     
     func dispatch(request: URLRequestProtocol) -> AnyPublisher<Data?, Error> {
         let path = phaseManager.currentPhase == .dev ? "dev/" + request.path : request.path
-        var reference = ref.collection(path)
+        var reference: FirebaseFirestore.Query = ref.collection(path)
+        
         if let queries = request.queries {
             queries.forEach {
                 switch $0.kind {
@@ -89,73 +90,90 @@ class FireStoreServer: Network {
                         reference = reference.order(by: orderValue)
                     }
                 case .whereField(let type):
-                    guard let orderValue = $0.value as? String else { return }
+                    guard let targetValue = $0.value as? String else { return }
                     switch type {
-                    case .child:
-                        reference = reference.order(by: orderValue)
-                    case .key:
-                        reference = reference.order(by: orderValue)
+                    case .array(let key):
+                        reference = reference.whereField(key, arrayContains: targetValue)
+                    case .element(let key):
+                        reference = reference.whereField(key, isEqualTo: targetValue)
                     }
-                case .equalTo:
                 case .limitToLast:
+                    guard let targetValue = $0.value as? Int else { return }
+                    reference = reference.limit(toLast: targetValue)
                 case .limitToFirst:
+                    guard let targetValue = $0.value as? Int else { return }
+                    reference = reference.limit(to: targetValue)
                 case .startAt:
+                    guard let targetValue = $0.value as? Int else { return }
+                    //reference = reference.start(atDocument: <#T##DocumentSnapshot#>)
                 case .endingAt:
+                    guard let targetValue = $0.value as? Int else { return }
+                    //reference = reference.end(atDocument: <#T##DocumentSnapshot#>)
                 }
             }
         }
         switch request.kind {
         case .observe:
-            reference.addSnapshotListener { snapshot, error in
-                
-                if let error = error {
-                    completion(.failure(error))
-                    return
-                }
-                
-                let objects = snapshot?.documents.compactMap { $0.data() } ?? []
-                if let data = try? JSONSerialization.data(withJSONObject: objects, options: .prettyPrinted) {
-                    completion(.success(data))
-                } else {
-                    completion(.failure(APIError.jsonConversionFailure))
+            return Future<Data?, Error> { promise in
+                reference.addSnapshotListener { snapshot, error in
+                    if let error = error {
+                        promise(.failure(error))
+                        return
+                    }
+                    
+                    let objects = snapshot?.documents.compactMap { $0.data() } ?? []
+                    if let data = try? JSONSerialization.data(withJSONObject: objects,
+                                                              options: .prettyPrinted) {
+                        promise(.success(data))
+                    } else {
+                        promise(.failure(APIError.jsonConversionFailure))
+                    }
                 }
             }
+            .eraseToAnyPublisher()
         case .observeSingleEvent:
-            reference.getDocuments { snapshot, error in
-                
-                if let error = error {
-                    completion(.failure(error))
-                    return
-                }
-                
-                let objects = snapshot?.documents.compactMap { $0.data() } ?? []
-                if let data = try? JSONSerialization.data(withJSONObject: objects, options: .prettyPrinted) {
-                    completion(.success(data))
-                } else {
-                    completion(.failure(APIError.jsonConversionFailure))
+            return Future<Data?, Error> { promise in
+                reference.getDocuments { snapshot, error in
+                    if let error = error {
+                        promise(.failure(error))
+                        return
+                    }
+                    
+                    let objects = snapshot?.documents.compactMap { $0.data() } ?? []
+                    if let data = try? JSONSerialization.data(withJSONObject: objects, options: .prettyPrinted) {
+                        promise(.success(data))
+                    } else {
+                        promise(.failure(APIError.jsonConversionFailure))
+                    }
                 }
             }
+            .eraseToAnyPublisher()
         case .set:
-            guard let body = request.body as? [String: Any] else { return }
-            reference.document().setData(body) { (error) in
-                
-                if let error = error {
-                    completion(.failure(error))
-                    return
+            return Future<Data?, Error> { promise in
+                guard let body = request.body as? [String: Any],
+                      let document = (reference as? CollectionReference)?.document(path) else {
+                    return promise(.failure(APIError.notDefined))
                 }
-                
-                completion(.success(nil))
+                document.setData(body) { (error) in
+                    
+                    if let error = error {
+                        promise(.failure(error))
+                        return
+                    }
+                    promise(.success(nil))
+                }
             }
+            .eraseToAnyPublisher()
         case .setUnderAutoId:
-            break
+            return Empty().eraseToAnyPublisher()
         case .update:
-            break
+            return Empty().eraseToAnyPublisher()
         case .updateByTransaction(let actionType):
-            break //TODO: 구현
+            return Empty().eraseToAnyPublisher() //TODO: 구현
         case .remove:
-            break
+            return Empty().eraseToAnyPublisher()
         case .storageUpload(let data):
-            break
+            return Empty().eraseToAnyPublisher()
         }
     }
 }

@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import Combine
 
 protocol FeedServiceProtocol {
     func getFeeds(numberOfItemsPerPage: Int,
                   pagingKey: String?,
-                  locationTag: Int?) -> [Post]
+                  locationTag: Int?) -> AnyPublisher<[Post], Error>
 }

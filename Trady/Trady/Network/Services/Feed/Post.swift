@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Post {
+struct Post: Decodable {
     let title: String
     let id: Int
     let content: String

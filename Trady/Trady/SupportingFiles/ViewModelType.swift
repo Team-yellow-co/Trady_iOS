@@ -12,6 +12,5 @@ protocol ViewModelType {
     associatedtype Input
     associatedtype Output
 
-    mutating func transform(input: Input,
-                   subscriptions: SubscriptionBag) -> Output
+    func transform(input: Input) -> Output
 }
