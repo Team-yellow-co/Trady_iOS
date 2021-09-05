@@ -13,8 +13,39 @@ struct FeedWriteView: View {
     init(viewModel: FeedWriteViewModel) {
         self.viewModel = viewModel
     }
+    
     var body: some View {
-        Text("Hello, World!")
+        NavigationView {
+            VStack(alignment: .leading) {
+                Spacer()
+                    .frame(width: 15,
+                           height: 15,
+                           alignment: .center)
+                
+                SelfSizingTextEditor(placeholerString: "여기를 눌러 입력해주세요")
+                
+                Spacer()
+                    .frame(width: 20,
+                           height: 20,
+                           alignment: .center)
+                Text("# 지역 태그 선택")
+                    .foregroundColor(.gray)
+                    .fontWeight(.medium)
+                Spacer()
+            }
+            .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing:   10))
+            .navigationTitle("글쓰기")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(leading: Button(action: {
+                
+            }, label: {
+                Text("X")
+            }), trailing: Button(action: {
+                
+            }, label: {
+                Text("완료")
+            }))
+        }
     }
 }
 

@@ -10,6 +10,7 @@ target 'Trady' do
   pod 'CryptoKit'
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
+  pod 'Introspect'
   # Pods for Trady
 
   target 'TradyTests' do

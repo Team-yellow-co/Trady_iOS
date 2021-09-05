@@ -60,6 +60,7 @@
 		CE37821125ED4E7D00310E2B /* AppPhaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37821025ED4E7D00310E2B /* AppPhaseManager.swift */; };
 		CE37821625ED52F100310E2B /* ChatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37821525ED52F100310E2B /* ChatBubbleView.swift */; };
 		CE37821C25ED536800310E2B /* ChatBubblePosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37821B25ED536800310E2B /* ChatBubblePosition.swift */; };
+		CE3B063726E518FE0043B97D /* SelfSizingTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B063626E518FE0043B97D /* SelfSizingTextEditor.swift */; };
 		CE75BEAC26DB6CA7009E5032 /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75BEAB26DB6CA7009E5032 /* FeedService.swift */; };
 		CE75BEB126DB6CC0009E5032 /* FeedServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75BEB026DB6CC0009E5032 /* FeedServiceProtocol.swift */; };
 		CE75BEB626DB7DC3009E5032 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75BEB526DB7DC3009E5032 /* Post.swift */; };
@@ -147,6 +148,7 @@
 		CE37821025ED4E7D00310E2B /* AppPhaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPhaseManager.swift; sourceTree = "<group>"; };
 		CE37821525ED52F100310E2B /* ChatBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleView.swift; sourceTree = "<group>"; };
 		CE37821B25ED536800310E2B /* ChatBubblePosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubblePosition.swift; sourceTree = "<group>"; };
+		CE3B063626E518FE0043B97D /* SelfSizingTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizingTextEditor.swift; sourceTree = "<group>"; };
 		CE75BEAB26DB6CA7009E5032 /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
 		CE75BEB026DB6CC0009E5032 /* FeedServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceProtocol.swift; sourceTree = "<group>"; };
 		CE75BEB526DB7DC3009E5032 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 		C9B5E2DB25BD717B0024678D /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				CE3B063526E517DF0043B97D /* UIHelper */,
 				C9B821FB25BE407F00AEE7CD /* My */,
 				C9B821FA25BE407900AEE7CD /* Chat */,
 				C9B821F925BE407400AEE7CD /* Alarm */,
@@ -488,6 +491,14 @@
 				CE37821B25ED536800310E2B /* ChatBubblePosition.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		CE3B063526E517DF0043B97D /* UIHelper */ = {
+			isa = PBXGroup;
+			children = (
+				CE3B063626E518FE0043B97D /* SelfSizingTextEditor.swift */,
+			);
+			path = UIHelper;
 			sourceTree = "<group>";
 		};
 		CE75BEAA26DB6C9D009E5032 /* Feed */ = {
@@ -799,6 +810,7 @@
 				C97A228825CFFFEB0021893D /* APIError.swift in Sources */,
 				C96C5E8A25CEA6F9003C075E /* AppDelegate.swift in Sources */,
 				C96896C125D58B1A0045A35C /* AppleSignInProxy.swift in Sources */,
+				CE3B063726E518FE0043B97D /* SelfSizingTextEditor.swift in Sources */,
 				C9CDB85425C1D95A00F874CE /* LoginViewModel.swift in Sources */,
 				C95C402B25C1E39800B40E3A /* LoginViewModifiers.swift in Sources */,
 				CE75BEB626DB7DC3009E5032 /* Post.swift in Sources */,
@@ -983,7 +995,7 @@
 				CODE_SIGN_ENTITLEMENTS = Trady/Trady.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Trady/Preview Content\"";
-				DEVELOPMENT_TEAM = CMXKRM464P;
+				DEVELOPMENT_TEAM = FMT427UJW7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Trady/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1007,7 +1019,7 @@
 				CODE_SIGN_ENTITLEMENTS = Trady/Trady.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Trady/Preview Content\"";
-				DEVELOPMENT_TEAM = CMXKRM464P;
+				DEVELOPMENT_TEAM = FMT427UJW7;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Trady/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
