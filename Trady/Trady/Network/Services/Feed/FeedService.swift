@@ -31,4 +31,15 @@ class FeedService: FeedServiceProtocol {
             .decode(type: [Post].self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }
+    
+    func writePost(with post: Post) -> AnyPublisher<Data?, Error> {
+        let api = TradyApi.writePost(post: post)
+        
+        let request = FirebaseRequest(path: api.path,
+                                      kind: .set,
+                                      queries: api.parameters,
+                                      body: post.dictionary)
+        return network.dispatch(request: request)
+            .eraseToAnyPublisher()
+    }
 }

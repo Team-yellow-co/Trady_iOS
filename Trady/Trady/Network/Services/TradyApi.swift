@@ -12,14 +12,18 @@ enum TradyApi {
                   pagingKey: String?,
                   locationTag: Int?)
     
+    case writePost(post: Post)
+    
     var path: String {
         switch self {
         case .getFeeds:
             return "feed/posts"
+        case .writePost:
+            return "feed/posts"
         }
     }
     
-    var parameters: [(Query, Any)]{
+    var parameters: [(Query, Any)] {
         switch self {
         case .getFeeds(let pageLimit, let pagingKey, let tag):
             if let tag = tag {
@@ -39,6 +43,8 @@ enum TradyApi {
                     return [(Query.limitToLast, pageLimit)]
                 }
             }
+        case .writePost(let post):
+            return []
         }
     }
 }

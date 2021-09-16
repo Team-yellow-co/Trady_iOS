@@ -12,4 +12,6 @@ protocol FeedServiceProtocol {
     func getFeeds(numberOfItemsPerPage: Int,
                   pagingKey: String?,
                   locationTag: Int?) -> AnyPublisher<[Post], Error>
+    
+    func writePost(with post: Post) -> AnyPublisher<Data?, Error>
 }

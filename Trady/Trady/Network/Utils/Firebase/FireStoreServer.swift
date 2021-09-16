@@ -151,7 +151,7 @@ class FireStoreServer: Network {
         case .set:
             return Future<Data?, Error> { promise in
                 guard let body = request.body as? [String: Any],
-                      let document = (reference as? CollectionReference)?.document(path) else {
+                      let document = (reference as? CollectionReference)?.document() else {
                     return promise(.failure(APIError.notDefined))
                 }
                 document.setData(body) { (error) in

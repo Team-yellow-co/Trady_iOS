@@ -12,17 +12,14 @@ import Introspect
 
 struct SelfSizingTextEditor: View {
     
-    private let placeholerString: String
+    let placeholerString: String
+    let textCountLimit: Int?
     private let contentsFont: Font = .system(size: 16,
                                              weight: .regular,
                                              design: .default)
-    @State private var contents = ""
+    @Binding var contents: String
     @State private var textEditorHeight : CGFloat = 100
     @State private var isShowingPlaceholder = true
-    
-    init(placeholerString: String) {
-        self.placeholerString = placeholerString
-    }
     
     var body: some View {
         ZStack(alignment: .topLeading) {
@@ -47,21 +44,20 @@ struct SelfSizingTextEditor: View {
                 .background(Color.clear)
                 .onChange(of: contents,
                           perform: { _ in
+                            
                     if self.contents.isEmpty {
                         self.isShowingPlaceholder = true
                     } else {
                         self.isShowingPlaceholder = false
                     }
-                            
+                    if let limit = textCountLimit {
+                        contents = String(contents.prefix(limit))
+                    }
                 })
-            
-                
         }
         .onPreferenceChange(ViewHeightKey.self) { textEditorHeight = $0 }
     }
 }
-
-
 
 struct ViewHeightKey: PreferenceKey {
     static var defaultValue: CGFloat { 0 }
