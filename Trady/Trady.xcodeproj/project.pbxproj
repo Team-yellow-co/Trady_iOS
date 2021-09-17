@@ -65,6 +65,9 @@
 		CE75BEB126DB6CC0009E5032 /* FeedServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75BEB026DB6CC0009E5032 /* FeedServiceProtocol.swift */; };
 		CE75BEB626DB7DC3009E5032 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75BEB526DB7DC3009E5032 /* Post.swift */; };
 		CE75BEBB26DB80A5009E5032 /* TradyApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75BEBA26DB80A5009E5032 /* TradyApi.swift */; };
+		CEACBCF826F4B8E1004B9C48 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEACBCF726F4B8E1004B9C48 /* LocationService.swift */; };
+		CEACBCFA26F4C048004B9C48 /* LocationTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEACBCF926F4C048004B9C48 /* LocationTag.swift */; };
+		CEACBCFC26F4C94E004B9C48 /* LocationServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEACBCFB26F4C94E004B9C48 /* LocationServiceProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,6 +156,9 @@
 		CE75BEB026DB6CC0009E5032 /* FeedServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceProtocol.swift; sourceTree = "<group>"; };
 		CE75BEB526DB7DC3009E5032 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		CE75BEBA26DB80A5009E5032 /* TradyApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradyApi.swift; sourceTree = "<group>"; };
+		CEACBCF726F4B8E1004B9C48 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		CEACBCF926F4C048004B9C48 /* LocationTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTag.swift; sourceTree = "<group>"; };
+		CEACBCFB26F4C94E004B9C48 /* LocationServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServiceProtocol.swift; sourceTree = "<group>"; };
 		D89A31F2CCA6F277E20BB2E3 /* Pods-Trady-TradyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trady-TradyUITests.debug.xcconfig"; path = "Target Support Files/Pods-Trady-TradyUITests/Pods-Trady-TradyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E0C19B4823882085D8508280 /* Pods-Trady.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trady.release.xcconfig"; path = "Target Support Files/Pods-Trady/Pods-Trady.release.xcconfig"; sourceTree = "<group>"; };
 		F8A09BB9EA121274BAE601C1 /* Pods_Trady_TradyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trady_TradyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -507,6 +513,9 @@
 				CE75BEAB26DB6CA7009E5032 /* FeedService.swift */,
 				CE75BEB026DB6CC0009E5032 /* FeedServiceProtocol.swift */,
 				CE75BEB526DB7DC3009E5032 /* Post.swift */,
+				CEACBCF726F4B8E1004B9C48 /* LocationService.swift */,
+				CEACBCF926F4C048004B9C48 /* LocationTag.swift */,
+				CEACBCFB26F4C94E004B9C48 /* LocationServiceProtocol.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -806,6 +815,7 @@
 				C96C5EB125CEB461003C075E /* HTTPStatusCode.swift in Sources */,
 				C9B5E2E325BD72450024678D /* MainTabView.swift in Sources */,
 				C9B8220825BE422D00AEE7CD /* ChatView.swift in Sources */,
+				CEACBCFA26F4C048004B9C48 /* LocationTag.swift in Sources */,
 				CE3781E625ECF77100310E2B /* FirebaseRequest.swift in Sources */,
 				C97A228825CFFFEB0021893D /* APIError.swift in Sources */,
 				C96C5E8A25CEA6F9003C075E /* AppDelegate.swift in Sources */,
@@ -822,7 +832,9 @@
 				C96C5EA925CEB434003C075E /* URLResponseProtocol.swift in Sources */,
 				C95C404125C33D2F00B40E3A /* LoginForm.swift in Sources */,
 				C9CDB85D25C1D99100F874CE /* LoginType.swift in Sources */,
+				CEACBCFC26F4C94E004B9C48 /* LocationServiceProtocol.swift in Sources */,
 				C95C403425C33B4300B40E3A /* LoginServiceProtocol.swift in Sources */,
+				CEACBCF826F4B8E1004B9C48 /* LocationService.swift in Sources */,
 				C96C5E9025CEAEAB003C075E /* GoogleSignInProxy.swift in Sources */,
 				CE11122E26A5C5B3002021DF /* FeedWriteView.swift in Sources */,
 				CE11122926A5B7DC002021DF /* Colors.swift in Sources */,
