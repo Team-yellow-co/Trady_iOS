@@ -7,10 +7,13 @@
 
 import Foundation
 
-class MasterLocationTag {
+class MasterLocationTag: Identifiable {
     let locationName: String
     let locationCode: Int
     var subLocations: [LocationTag]
+    var id: Int {
+        return locationCode
+    }
     
     func addSubLocationTag(tag: LocationTag) {
         subLocations.append(tag)
@@ -23,7 +26,11 @@ class MasterLocationTag {
     }
 }
 
-struct LocationTag: Equatable {
+struct LocationTag: Equatable, Identifiable {
+    var id: Int {
+        return locationCode
+    }
+    
     static func == (lhs: LocationTag, rhs: LocationTag) -> Bool {
         return lhs.locationCode == rhs.locationCode
     }

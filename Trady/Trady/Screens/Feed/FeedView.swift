@@ -37,9 +37,9 @@ struct FeedView: View {
                         .frame(width: 25, height: 25, alignment: .center)
                 }
             )
-            .sheet(isPresented: $isFeedWriteShowing) {
+            .fullScreenCover(isPresented: $isFeedWriteShowing, content: {
                 FeedWriteView(viewModel: viewModel.feedWriteViewModel)
-            }
+            })
         }
         .onAppear(perform: {
             viewModel.send(event: FeedEvent.onAppear)

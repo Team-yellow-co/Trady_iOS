@@ -11,6 +11,7 @@ struct FeedWriteView: View {
     private var viewModel: FeedWriteViewModel
     @State private var title: String = ""
     @State private var contents: String = ""
+    @State private var isTagSeletionViewShowing = false
     init(viewModel: FeedWriteViewModel) {
         self.viewModel = viewModel
     }
@@ -33,9 +34,13 @@ struct FeedWriteView: View {
                     .frame(width: 20,
                            height: 20,
                            alignment: .center)
-                Text("# 지역 태그 선택")
-                    .foregroundColor(.gray)
-                    .fontWeight(.medium)
+                
+                Button(action: {
+                    isTagSeletionViewShowing = true
+                }) {
+                    Text("지역 태그를 선택해주세요")
+                }
+                
                 Spacer()
             }
             .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing:   10))
@@ -54,6 +59,9 @@ struct FeedWriteView: View {
                 Text("완료")
             }))
         }
+        .fullScreenCover(isPresented: $isTagSeletionViewShowing, content: {
+            FeedTagSelectionView(viewModel: viewModel.feedTagSelectionViewModel)
+        })
     }
 }
 

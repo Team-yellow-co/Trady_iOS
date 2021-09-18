@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -68,6 +68,10 @@
 		CEACBCF826F4B8E1004B9C48 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEACBCF726F4B8E1004B9C48 /* LocationService.swift */; };
 		CEACBCFA26F4C048004B9C48 /* LocationTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEACBCF926F4C048004B9C48 /* LocationTag.swift */; };
 		CEACBCFC26F4C94E004B9C48 /* LocationServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEACBCFB26F4C94E004B9C48 /* LocationServiceProtocol.swift */; };
+		CEACBCFE26F63FAA004B9C48 /* FeedTagSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEACBCFD26F63FAA004B9C48 /* FeedTagSelectionView.swift */; };
+		CEACBD0026F63FCF004B9C48 /* FeedTagSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEACBCFF26F63FCF004B9C48 /* FeedTagSelectionViewModel.swift */; };
+		CEACBD0326F64E48004B9C48 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEACBD0226F64E48004B9C48 /* Array+.swift */; };
+		CEACBD0626F652C3004B9C48 /* SwiftUIFlowLayout in Frameworks */ = {isa = PBXBuildFile; productRef = CEACBD0526F652C3004B9C48 /* SwiftUIFlowLayout */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +163,9 @@
 		CEACBCF726F4B8E1004B9C48 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		CEACBCF926F4C048004B9C48 /* LocationTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTag.swift; sourceTree = "<group>"; };
 		CEACBCFB26F4C94E004B9C48 /* LocationServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServiceProtocol.swift; sourceTree = "<group>"; };
+		CEACBCFD26F63FAA004B9C48 /* FeedTagSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTagSelectionView.swift; sourceTree = "<group>"; };
+		CEACBCFF26F63FCF004B9C48 /* FeedTagSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTagSelectionViewModel.swift; sourceTree = "<group>"; };
+		CEACBD0226F64E48004B9C48 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
 		D89A31F2CCA6F277E20BB2E3 /* Pods-Trady-TradyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trady-TradyUITests.debug.xcconfig"; path = "Target Support Files/Pods-Trady-TradyUITests/Pods-Trady-TradyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E0C19B4823882085D8508280 /* Pods-Trady.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trady.release.xcconfig"; path = "Target Support Files/Pods-Trady/Pods-Trady.release.xcconfig"; sourceTree = "<group>"; };
 		F8A09BB9EA121274BAE601C1 /* Pods_Trady_TradyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trady_TradyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,6 +176,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEACBD0626F652C3004B9C48 /* SwiftUIFlowLayout in Frameworks */,
 				2E4BFA4D989FEEBCC05FCA35 /* Pods_Trady.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,6 +352,7 @@
 		C9B5E2CF25BC74ED0024678D /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				CEACBD0126F64E39004B9C48 /* Extensions */,
 				CE11123726A5C95A002021DF /* EventHandler */,
 				CE37820F25ED4E6F00310E2B /* AppPhaseManager */,
 				C967AEDE25BC3E6000A7710F /* TradyApp.swift */,
@@ -400,6 +409,7 @@
 				C9B821F425BE406A00AEE7CD /* FeedView.swift */,
 				CE11122326A08742002021DF /* FeedCellView.swift */,
 				CE11122D26A5C5B2002021DF /* FeedWriteView.swift */,
+				CEACBCFD26F63FAA004B9C48 /* FeedTagSelectionView.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -462,6 +472,7 @@
 				CE11120E26A08553002021DF /* FeedViewModel.swift */,
 				CE11121626A08595002021DF /* FeedCellViewModel.swift */,
 				CE11123226A5C850002021DF /* FeedWriteViewModel.swift */,
+				CEACBCFF26F63FCF004B9C48 /* FeedTagSelectionViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -520,6 +531,14 @@
 			path = Feed;
 			sourceTree = "<group>";
 		};
+		CEACBD0126F64E39004B9C48 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CEACBD0226F64E48004B9C48 /* Array+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -539,6 +558,9 @@
 			dependencies = (
 			);
 			name = Trady;
+			packageProductDependencies = (
+				CEACBD0526F652C3004B9C48 /* SwiftUIFlowLayout */,
+			);
 			productName = Trady;
 			productReference = C967AEDB25BC3E6000A7710F /* Trady.app */;
 			productType = "com.apple.product-type.application";
@@ -614,6 +636,9 @@
 				Base,
 			);
 			mainGroup = C967AED225BC3E6000A7710F;
+			packageReferences = (
+				CEACBD0426F652C3004B9C48 /* XCRemoteSwiftPackageReference "swiftui-flow-layout" */,
+			);
 			productRefGroup = C967AEDC25BC3E6000A7710F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -811,6 +836,7 @@
 				C97A229225D008F60021893D /* AuthService.swift in Sources */,
 				CE75BEB126DB6CC0009E5032 /* FeedServiceProtocol.swift in Sources */,
 				C96C5E9E25CEB389003C075E /* URLSessionTaskProtocol.swift in Sources */,
+				CEACBD0326F64E48004B9C48 /* Array+.swift in Sources */,
 				C912D17325C094C8005CA7A5 /* EnteringView.swift in Sources */,
 				C96C5EB125CEB461003C075E /* HTTPStatusCode.swift in Sources */,
 				C9B5E2E325BD72450024678D /* MainTabView.swift in Sources */,
@@ -832,6 +858,8 @@
 				C96C5EA925CEB434003C075E /* URLResponseProtocol.swift in Sources */,
 				C95C404125C33D2F00B40E3A /* LoginForm.swift in Sources */,
 				C9CDB85D25C1D99100F874CE /* LoginType.swift in Sources */,
+				CEACBD0026F63FCF004B9C48 /* FeedTagSelectionViewModel.swift in Sources */,
+				CEACBCFE26F63FAA004B9C48 /* FeedTagSelectionView.swift in Sources */,
 				CEACBCFC26F4C94E004B9C48 /* LocationServiceProtocol.swift in Sources */,
 				C95C403425C33B4300B40E3A /* LoginServiceProtocol.swift in Sources */,
 				CEACBCF826F4B8E1004B9C48 /* LocationService.swift in Sources */,
@@ -1174,6 +1202,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CEACBD0426F652C3004B9C48 /* XCRemoteSwiftPackageReference "swiftui-flow-layout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/globulus/swiftui-flow-layout";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CEACBD0526F652C3004B9C48 /* SwiftUIFlowLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEACBD0426F652C3004B9C48 /* XCRemoteSwiftPackageReference "swiftui-flow-layout" */;
+			productName = SwiftUIFlowLayout;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C967AED325BC3E6000A7710F /* Project object */;
 }

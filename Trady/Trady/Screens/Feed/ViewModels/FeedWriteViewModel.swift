@@ -12,6 +12,7 @@ import Combine
 class FeedWriteViewModel: EventHandler {
     
     @Published private(set) var isPresented = false
+    private(set) var feedTagSelectionViewModel: FeedTagSelectionViewModel = FeedTagSelectionViewModel()
     private var subscriptions = Set<AnyCancellable>()
     weak var parent: EventHandler?
     var children: [EventHandler] = []
@@ -20,6 +21,7 @@ class FeedWriteViewModel: EventHandler {
     
     init(feedService: FeedServiceProtocol = FeedService(network: FireStoreServer())) {
         self.feedService = feedService
+        add(child: feedTagSelectionViewModel)
     }
     
     deinit {
@@ -66,5 +68,4 @@ class FeedWriteViewModel: EventHandler {
             return
         }
     }
-    
 }
