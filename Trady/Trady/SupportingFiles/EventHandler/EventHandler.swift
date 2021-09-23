@@ -47,7 +47,14 @@ protocol FeedEventType: Event {
 }
 
 enum FeedEvent: FeedEventType {
+    case showFeedWriteView
+    case hideFeedWriteView(isPostWriteAction: Bool)
     case writeButtonTouched
-    case writeCompleted(title: String, content: String, tags: [Int])
+    case writeCompleted(title: String, content: String)
+    
+    case showTagSelectView
+    case hideTagSelectView
+    case tagSelected(tag: LocationTag)
+    case tagCompleted
     case onAppear
 }

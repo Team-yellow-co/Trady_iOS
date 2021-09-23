@@ -7,9 +7,24 @@
 
 import Foundation
 
-class FeedCellViewModel: Identifiable {
+class FeedCellViewModel: Identifiable, ObservableObject, Equatable {
+    static func == (lhs: FeedCellViewModel, rhs: FeedCellViewModel) -> Bool {
+        lhs.id == rhs.id
+    }
+    
     private(set) var viewCountText: String = "1"
+    private(set) var title: String = ""
+    private(set) var createdAt: String = ""
     private(set) var contentText: String = String.random(length: Int.random(in: 15...500))
+    init(post: Post) {
+        self.title = post.title
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YY, MMM d, HH:mm:ss"
+        self.createdAt = dateFormatter.string(from: post.createdAt)
+        self.viewCountText = "\(post.viewCount ?? 0)"
+        self.contentText = post.content
+    }
+    
 }
 
 extension String {

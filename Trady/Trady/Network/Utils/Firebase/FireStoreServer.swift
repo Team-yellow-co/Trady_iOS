@@ -81,13 +81,13 @@ class FireStoreServer: Network {
         if let queries = request.queries {
             queries.forEach {
                 switch $0.kind {
-                case .orderBy(let type):
+                case .orderBy(let type, let isDescending):
                     guard let orderValue = $0.value as? String else { return }
                     switch type {
                     case .child:
-                        reference = reference.order(by: orderValue)
+                        reference = reference.order(by: orderValue, descending: isDescending)
                     case .key:
-                        reference = reference.order(by: orderValue)
+                        reference = reference.order(by: orderValue, descending: isDescending)
                     }
                 case .whereField(let type):
                     guard let targetValue = $0.value as? String else { return }

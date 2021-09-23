@@ -30,17 +30,21 @@ enum TradyApi {
                 if let key = pagingKey {
                     return [(Query.whereField(.array("tags")), tag),
                             (Query.startAt, key),
+                            (Query.orderBy(.key, isDescending: true), "createdAt"),
                             (Query.limitToLast, pageLimit)]
                 } else {
                     return [(Query.whereField(.array("tags")), tag),
+                            (Query.orderBy(.key, isDescending: true), "createdAt"),
                             (Query.limitToLast, pageLimit)]
                 }
             } else {
                 if let key = pagingKey {
                     return [(Query.startAt, key),
+                            (Query.orderBy(.key, isDescending: true), "createdAt"),
                             (Query.limitToLast, pageLimit)]
                 } else {
-                    return [(Query.limitToLast, pageLimit)]
+                    return [(Query.orderBy(.key, isDescending: true), "createdAt"),
+                            (Query.limitToLast, pageLimit)]
                 }
             }
         case .writePost(let post):

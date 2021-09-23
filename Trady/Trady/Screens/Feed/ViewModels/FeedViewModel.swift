@@ -8,20 +8,36 @@
 import Foundation
 import Combine
 
-class FeedViewModel: EventHandler {
+class FeedViewModel: EventHandler, ObservableObject {
     
     private let feedService = FeedService(network: FireStoreServer())
     @Published var feedCellViewModels: [FeedCellViewModel] = []
+    @Published var isFeedWriteShowing = false
+    private var currentPagingKey: String?
     private(set) var feedWriteViewModel: FeedWriteViewModel = FeedWriteViewModel()
+    private var subscriptions = Set<AnyCancellable>()
+    
     weak var parent: EventHandler?
     var children: [EventHandler] = []
     
     @Published private(set) var isFeedWriteViewShowing = false
     
     init() {
-        (0...10).forEach { _ in
-            feedCellViewModels.append(FeedCellViewModel())
-        }
+        feedService.getFeeds(numberOfItemsPerPage: 20,
+                             pagingKey: nil,
+                             locationTag: nil)
+            .sink { comp in
+                switch comp {
+                case .failure(let error):
+                    print(error)
+                default:
+                    break
+                }
+            } receiveValue: { posts in
+                self.feedCellViewModels = posts.map { FeedCellViewModel(post: $0) }
+                
+            }
+            .store(in: &subscriptions)
         add(child: feedWriteViewModel)
     }
     
@@ -31,6 +47,28 @@ class FeedViewModel: EventHandler {
                 passDown(event: event)
             }
             switch feedEvent {
+            case .showFeedWriteView:
+                isFeedWriteShowing = true
+            case .hideFeedWriteView(let isPostWriteAction):
+                isFeedWriteShowing = false
+                currentPagingKey = nil
+                if isPostWriteAction {
+                    feedService.getFeeds(numberOfItemsPerPage: 20,
+                                         pagingKey: currentPagingKey,
+                                         locationTag: nil)
+                        .sink { comp in
+                            switch comp {
+                            case .failure(let error):
+                                print(error)
+                            default:
+                                break
+                            }
+                        } receiveValue: { posts in
+                            self.feedCellViewModels = posts.map { FeedCellViewModel(post: $0) }
+                            
+                        }
+                        .store(in: &subscriptions)
+                }
             case .writeButtonTouched:
                 break
             case .onAppear:

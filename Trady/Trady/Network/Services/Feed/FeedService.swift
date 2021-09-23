@@ -29,6 +29,7 @@ class FeedService: FeedServiceProtocol {
         return network.dispatch(request: request)
             .compactMap { $0 }
             .decode(type: [Post].self, decoder: JSONDecoder())
+            .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
     
@@ -40,6 +41,7 @@ class FeedService: FeedServiceProtocol {
                                       queries: api.parameters,
                                       body: post.dictionary)
         return network.dispatch(request: request)
+            .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
 }

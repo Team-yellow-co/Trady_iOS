@@ -9,7 +9,7 @@ import Foundation
 
 struct Post: Codable {
     let title: String
-    let id: Int?
+    let id: String?
     let content: String
     let profileImageUrl: String?
     let likeCount: Int?

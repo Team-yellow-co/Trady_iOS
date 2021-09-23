@@ -7,7 +7,11 @@
 
 import Foundation
 
-class MasterLocationTag: Identifiable {
+class MasterLocationTag: Identifiable, Hashable {
+    static func == (lhs: MasterLocationTag, rhs: MasterLocationTag) -> Bool {
+        return lhs.locationCode == rhs.locationCode
+    }
+    
     let locationName: String
     let locationCode: Int
     var subLocations: [LocationTag]
@@ -24,9 +28,17 @@ class MasterLocationTag: Identifiable {
         self.locationCode = locationCode
         self.subLocations = subLocations
     }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }
 
-struct LocationTag: Equatable, Identifiable {
+struct LocationTag: Equatable, Identifiable, Hashable, Comparable {
+    static func < (lhs: LocationTag, rhs: LocationTag) -> Bool {
+        lhs.locationName < rhs.locationName
+    }
+    
     var id: Int {
         return locationCode
     }
@@ -38,4 +50,9 @@ struct LocationTag: Equatable, Identifiable {
     let motherLocation: MasterLocationTag
     let locationName: String
     let locationCode: Int
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
 }

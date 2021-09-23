@@ -11,7 +11,6 @@ import Combine
 
 class FeedTagSelectionViewModel: EventHandler, ObservableObject {
     
-    @Published private(set) var isPresented = false
     private var subscriptions = Set<AnyCancellable>()
     weak var parent: EventHandler?
     var children: [EventHandler] = []
@@ -47,7 +46,6 @@ class FeedTagSelectionViewModel: EventHandler, ObservableObject {
                 passDown(event: event)
             }
             switch feedEvent {
-            
             default:
                 break
             }

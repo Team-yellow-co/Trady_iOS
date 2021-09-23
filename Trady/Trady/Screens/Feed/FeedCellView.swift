@@ -42,9 +42,9 @@ struct FeedCellView: View {
                     .frame(width: 10, height: 50, alignment: .leading)
                 VStack(alignment: .leading) {
                     Spacer()
-                    Text("테스트")
+                    Text(viewModel.title)
                         .font(idTextFont)
-                    Text("2021.02.03 오후 12 : 30")
+                    Text(viewModel.createdAt)
                         .font(dateTextFont)
                         .foregroundColor(Color.gray)
                     Spacer()
@@ -110,7 +110,13 @@ struct FeedCellView: View {
 
 struct FeedCellView_Previews: PreviewProvider {
     static var previews: some View {
-        let testVM = FeedCellViewModel()
+        let testPost = Post(title: "testTitle",
+                            id: "testid",
+                            content: "somebody to love", profileImageUrl: nil,
+                            likeCount: 10, viewCount: 20,
+                            createdAt: .init(),
+                            tags: [])
+        let testVM = FeedCellViewModel(post: testPost)
         FeedCellView(viewModel: testVM)
     }
 }

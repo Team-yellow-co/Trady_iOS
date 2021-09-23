@@ -15,7 +15,7 @@ protocol URLRequestProtocol {
 }
 
 enum Query {
-    case orderBy(OrderByType)
+    case orderBy(OrderByType, isDescending: Bool)
     case whereField(WhereFieldType)
     case limitToLast
     case limitToFirst

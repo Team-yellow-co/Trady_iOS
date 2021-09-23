@@ -8,19 +8,24 @@
 import Foundation
 import SwiftUI
 import Combine
+import FirebaseAuth
 
-class FeedWriteViewModel: EventHandler {
-    
-    @Published private(set) var isPresented = false
+class FeedWriteViewModel: EventHandler, ObservableObject {
+    @Published var isTagSeletionViewShowing = false
     private(set) var feedTagSelectionViewModel: FeedTagSelectionViewModel = FeedTagSelectionViewModel()
     private var subscriptions = Set<AnyCancellable>()
+    
+    @Published var locationTags = Set<LocationTag>()
     weak var parent: EventHandler?
     var children: [EventHandler] = []
     
     private let feedService: FeedServiceProtocol
+    private let authService: AuthServiceProtocol
     
-    init(feedService: FeedServiceProtocol = FeedService(network: FireStoreServer())) {
+    init(feedService: FeedServiceProtocol = FeedService(network: FireStoreServer()),
+         authService: AuthServiceProtocol = Auth.auth()) {
         self.feedService = feedService
+        self.authService = authService
         add(child: feedTagSelectionViewModel)
     }
     
@@ -35,19 +40,25 @@ class FeedWriteViewModel: EventHandler {
             }
             switch feedEvent {
             case .writeButtonTouched:
-                isPresented = true
+                break
+                //isPresented = true
             case .writeCompleted(let title,
-                                 let content,
-                                 let tags):
+                                 let content):
+                guard let id = authService.fetchUid() else {
+                    return
+                }
                 let today = Date()
+                let tags = locationTags.map { $0.locationCode }
+                
                 let post = Post(title: title,
-                                id: nil,
+                                id: id,
                                 content: content,
                                 profileImageUrl: nil,
                                 likeCount: nil,
                                 viewCount: nil,
                                 createdAt: today,
                                 tags: tags)
+                
                 feedService.writePost(with: post)
                     .sink { comp in
                         switch comp {
@@ -56,10 +67,17 @@ class FeedWriteViewModel: EventHandler {
                         case .finished:
                             break
                         }
-                    } receiveValue: { data in
-                        print(data)
+                    } receiveValue: { [weak self] data in
+                        self?.send(event: FeedEvent.hideFeedWriteView(isPostWriteAction: true))
                     }
                     .store(in: &subscriptions)
+            case .showTagSelectView:
+                isTagSeletionViewShowing = true
+            case .tagSelected(let tag):
+                locationTags.update(with: tag)
+                isTagSeletionViewShowing = false
+            case .tagCompleted:
+                isTagSeletionViewShowing = false
             default:
                 break
             }

@@ -47,6 +47,8 @@
 		C9CDB85425C1D95A00F874CE /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CDB85325C1D95A00F874CE /* LoginViewModel.swift */; };
 		C9CDB85D25C1D99100F874CE /* LoginType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CDB85C25C1D99100F874CE /* LoginType.swift */; };
 		C9CDB86225C1DAA400F874CE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9CDB86125C1DAA400F874CE /* GoogleService-Info.plist */; };
+		CE0AE42326FC6C92004FD080 /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0AE42226FC6C92004FD080 /* View+.swift */; };
+		CE0AE42526FC6CBD004FD080 /* FlexibleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0AE42426FC6CBD004FD080 /* FlexibleView.swift */; };
 		CE11120F26A08553002021DF /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE11120E26A08553002021DF /* FeedViewModel.swift */; };
 		CE11121726A08595002021DF /* FeedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE11121626A08595002021DF /* FeedCellViewModel.swift */; };
 		CE11122426A08742002021DF /* FeedCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE11122326A08742002021DF /* FeedCellView.swift */; };
@@ -142,6 +144,8 @@
 		C9CDB85325C1D95A00F874CE /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		C9CDB85C25C1D99100F874CE /* LoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginType.swift; sourceTree = "<group>"; };
 		C9CDB86125C1DAA400F874CE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CE0AE42226FC6C92004FD080 /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
+		CE0AE42426FC6CBD004FD080 /* FlexibleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleView.swift; sourceTree = "<group>"; };
 		CE11120E26A08553002021DF /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		CE11121626A08595002021DF /* FeedCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellViewModel.swift; sourceTree = "<group>"; };
 		CE11122326A08742002021DF /* FeedCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellView.swift; sourceTree = "<group>"; };
@@ -514,6 +518,7 @@
 			isa = PBXGroup;
 			children = (
 				CE3B063626E518FE0043B97D /* SelfSizingTextEditor.swift */,
+				CE0AE42426FC6CBD004FD080 /* FlexibleView.swift */,
 			);
 			path = UIHelper;
 			sourceTree = "<group>";
@@ -535,6 +540,7 @@
 			isa = PBXGroup;
 			children = (
 				CEACBD0226F64E48004B9C48 /* Array+.swift */,
+				CE0AE42226FC6C92004FD080 /* View+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -852,6 +858,7 @@
 				CE75BEB626DB7DC3009E5032 /* Post.swift in Sources */,
 				CE11122426A08742002021DF /* FeedCellView.swift in Sources */,
 				CE75BEAC26DB6CA7009E5032 /* FeedService.swift in Sources */,
+				CE0AE42326FC6C92004FD080 /* View+.swift in Sources */,
 				C96C5EA325CEB403003C075E /* URLRequestProtocol.swift in Sources */,
 				CE37821625ED52F100310E2B /* ChatBubbleView.swift in Sources */,
 				CE3781EB25ECF80200310E2B /* Network.swift in Sources */,
@@ -865,6 +872,7 @@
 				CEACBCF826F4B8E1004B9C48 /* LocationService.swift in Sources */,
 				C96C5E9025CEAEAB003C075E /* GoogleSignInProxy.swift in Sources */,
 				CE11122E26A5C5B3002021DF /* FeedWriteView.swift in Sources */,
+				CE0AE42526FC6CBD004FD080 /* FlexibleView.swift in Sources */,
 				CE11122926A5B7DC002021DF /* Colors.swift in Sources */,
 				CE37821C25ED536800310E2B /* ChatBubblePosition.swift in Sources */,
 				CE75BEBB26DB80A5009E5032 /* TradyApi.swift in Sources */,
@@ -1035,7 +1043,7 @@
 				CODE_SIGN_ENTITLEMENTS = Trady/Trady.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Trady/Preview Content\"";
-				DEVELOPMENT_TEAM = FMT427UJW7;
+				DEVELOPMENT_TEAM = CMXKRM464P;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Trady/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -1059,7 +1067,7 @@
 				CODE_SIGN_ENTITLEMENTS = Trady/Trady.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Trady/Preview Content\"";
-				DEVELOPMENT_TEAM = FMT427UJW7;
+				DEVELOPMENT_TEAM = CMXKRM464P;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Trady/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

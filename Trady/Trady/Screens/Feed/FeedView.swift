@@ -9,9 +9,8 @@ import SwiftUI
 import Combine
 
 struct FeedView: View {
-    private var viewModel: FeedViewModel
+    @ObservedObject private var viewModel: FeedViewModel
     private var subscriptions = Set<AnyCancellable>()
-    @State private var isFeedWriteShowing = false
     init(viewModel: FeedViewModel) {
         self.viewModel = viewModel
     }
@@ -23,27 +22,28 @@ struct FeedView: View {
                 ForEach(viewModel.feedCellViewModels) { cellVM in
                     FeedCellView(viewModel: cellVM)
                         .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                        
                 }
             }
+            .onAppear {
+                           print("ddddd")
+                        }
             .listStyle(PlainListStyle())
             .navigationTitle("Trady")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(trailing:
                 Button(action: {
-                    isFeedWriteShowing = true
+                    viewModel.send(event: FeedEvent.showFeedWriteView)
                 }) {
                     Image("feed_write")
                         .resizable()
                         .frame(width: 25, height: 25, alignment: .center)
                 }
             )
-            .fullScreenCover(isPresented: $isFeedWriteShowing, content: {
+            .fullScreenCover(isPresented: $viewModel.isFeedWriteShowing, content: {
                 FeedWriteView(viewModel: viewModel.feedWriteViewModel)
             })
         }
-        .onAppear(perform: {
-            viewModel.send(event: FeedEvent.onAppear)
-        })
     }
 }
 

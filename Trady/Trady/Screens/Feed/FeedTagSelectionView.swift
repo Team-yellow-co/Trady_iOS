@@ -10,42 +10,61 @@ import SwiftUIFlowLayout
 import SwiftUI
 
 struct FeedTagSelectionView: View {
+    struct Constant {
+        static let itemBorderPaddingInset: EdgeInsets = .init(top: 11,
+                                                              leading: 28,
+                                                              bottom: 11,
+                                                              trailing: 28)
+    }
     @ObservedObject private var viewModel: FeedTagSelectionViewModel
     @State var gridLayout = [ GridItem(), GridItem() ]
+    
     init(viewModel: FeedTagSelectionViewModel) {
         self.viewModel = viewModel
     }
     
     var body: some View {
         NavigationView {
-            ForEach(Range(0...viewModel.locationTags.count)) { row in
-                if let currentMasterLocationTag = viewModel.locationTags[safe: row] {
-                    Text(currentMasterLocationTag.locationName)
-                    FlowLayout(mode: .scrollable,
-                               items: currentMasterLocationTag.subLocations,
-                                   itemSpacing: 4) {
-                        Text($0.locationName)
-                            .font(.system(size: 14, weight: .heavy, design: .default))
-                            .foregroundColor(.black)
-                            .padding()
-                            .background(RoundedRectangle()
-                                            .border(Color.gray)
-                                            .foregroundColor(Color.white))
+            ScrollView {
+                ForEach(Range(0...viewModel.locationTags.count)) { row in
+                    if let currentMasterLocationTag = viewModel.locationTags[safe: row] {
+                        VStack {
+                            Text(currentMasterLocationTag.locationName)
+                                .font(.custom("SpoqaHanSans-Bold", size: 17))
+                                .foregroundColor(Color.tradyPurple)
+                            
+                            FlowLayout(mode: .scrollable,
+                                       items: currentMasterLocationTag.subLocations,
+                                           itemSpacing: 4) { item in
+                                Text(item.locationName)
+                                    .font(.system(size: 14, weight: .heavy, design: .default))
+                                    .foregroundColor(.black)
+                                    .padding(Constant.itemBorderPaddingInset)
+                                    .overlay(
+                                                RoundedRectangle(cornerRadius: 4)
+                                                    .stroke(Color.tradyGray, lineWidth: 1)
+                                            )
+                                    .onTapGesture(perform: {
+                                        viewModel.send(event: FeedEvent.tagSelected(tag: item))
+                                    })
+                            }
                         }
+                    } else {
+                        Text("")
+                    }
                 }
             }
-            .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing:   10))
+            .padding(EdgeInsets(top: 15, leading: 10, bottom: 0, trailing: 10))
             .navigationTitle("태그 선택")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(leading: Button(action: {
                 
             }, label: {
-                Text("X")
+                
             }), trailing: Button(action: {
-                //let
-                //viewModel.send(event: event)
+                viewModel.send(event: FeedEvent.tagCompleted)
             }, label: {
-                Text("완료")
+                Text("닫기")
             }))
         }
     }
